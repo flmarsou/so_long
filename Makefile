@@ -21,7 +21,9 @@ SRC_UTILS	=	./src/utils/ft_putstr.c \
 				./src/utils/ft_strlen.c \
 				./src/utils/ft_strcmp.c \
 
-SOURCES		=	${SRC} ${SRC_UTILS}
+SRC_MAP		=	./src/map/init_map.c \
+
+SOURCES		=	${SRC} ${SRC_UTILS} ${SRC_MAP}
 OBJECTS		=	${SOURCES:.c=.o}
 
 # Variables

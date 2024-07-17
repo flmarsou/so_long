@@ -12,25 +12,8 @@
 
 #include "../includes/so_long.h"
 
-static void check_args(int argc, const char **argv)
+int	main(int argc, const char **argv)
 {
-	int	fd;
-
-	fd = open(argv[1], O_RDONLY);
-	if (argc == 1)
-		ft_puterr("Too Few Argument!");
-	if (argc > 2)
-		ft_puterr("Too Many Arguments!");
-	if (fd == -1)
-		ft_puterr("File Not Found!");
-	else
-		close(fd);
-	if (ft_strcmp(&argv[1][ft_strlen(argv[1]) - 4], ".ber") != 0)
-		ft_puterr("Wrong Extension!");
-}
-
-int main(int argc, const char **argv)
-{
-	check_args(argc, argv);
-	return 0;
+	init_map(argc, argv);
+	return (0);
 }

@@ -20,6 +20,10 @@
 # include <string.h>	// strerror
 # include <math.h>
 
+// Map
+void		init_map(int argc, const char **argv);
+
+// Utils
 void		ft_putstr(const char *str);
 void		ft_puterr(const char *str);
 int			ft_strlen(const char *str);
