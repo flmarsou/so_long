@@ -5,48 +5,44 @@
 #                                                     +:+ +:+         +:+      #
 #    By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/07/12 09:44:05 by flmarsou          #+#    #+#              #
-#    Updated: 2024/07/12 14:07:13 by flmarsou         ###   ########.fr        #
+#    Created: 2024/07/17 12:59:58 by flmarsou          #+#    #+#              #
+#    Updated: 2024/07/17 15:15:10 by flmarsou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Program Executable
-EXE = so_long
+EXE			=	so_long
 
 # Files
-SRC		=		./src/main.c \
+SRC			=	./src/main.c \
 
-SOURCES = 		${SRC}
-OBJECTS = 		${SOURCES:.c=.o}
+SRC_UTILS	=	./src/utils/ft_putstr.c \
+				./src/utils/ft_puterr.c \
+				./src/utils/ft_strlen.c \
+				./src/utils/ft_strcmp.c \
 
-# Libraries
-FT_PRINTF =		./includes/ft_printf
-MINILIBX =		./includes/minilibx-linux
+SOURCES		=	${SRC} ${SRC_UTILS}
+OBJECTS		=	${SOURCES:.c=.o}
 
 # Variables
-CC		= cc
-CFLAGS	= -Wall -Werror -Wextra -g3 -fsanitize=address
-RM		= rm -f
+CC			=	cc
+CFLAGS		=	-Wall -Werror -Wextra -g3 -fsanitize=address
+RM			=	rm -rf
 
 # Makefile
 all:		${EXE}
 
 ${EXE}:		${OBJECTS}
-		@${MAKE} -C ${FT_PRINTF} > /dev/null
-		@${MAKE} -C ${MINILIBX}
-		@${CC} ${CFLAGS} ${OBJECTS} ${FT_PRINTF}/libftprintf.a -o ${EXE}
+			@${CC} ${CFLAGS} ${OBJECTS} ${LIBS} -o ${EXE}
 
 %.o:		%.c
-		@${CC} ${CFLAGS} -c $? -o $@
+			@${CC} ${CFLAGS} -c $? -o $@
 
 clean:
-		@${MAKE} -C ${FT_PRINTF} clean > /dev/null
-		@${MAKE} -C ${MINILIBX} clean
-		@${RM} ${OBJECTS}
+			@${RM} ${OBJECTS}
 
 fclean:		clean
-		@${MAKE} -C ${FT_PRINTF} fclean > /dev/null
-		@${RM} ${OBJECTS} ${EXE}
+			@${RM} ${EXE}
 
 re:			fclean all
 

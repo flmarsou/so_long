@@ -1,42 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_puterr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/10 10:56:52 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/05/14 10:17:27 by flmarsou         ###   ########.fr       */
+/*   Created: 2024/07/17 13:03:57 by flmarsou          #+#    #+#             */
+/*   Updated: 2024/07/17 13:55:26 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "../../includes/so_long.h"
 
-int	ft_putnbr(int nbr)
+void	ft_puterr(const char *str)
 {
-	unsigned int	i;
-
-	i = 0;
-	if (nbr == -2147483648)
-	{
-		ft_putstr("-2147483648");
-		return (11);
-	}
-	if (nbr < 0)
-	{
-		nbr *= -1;
-		ft_putchr('-');
-		i++;
-	}
-	if (nbr > 9)
-	{
-		i += ft_putnbr(nbr / 10);
-		i += ft_putnbr(nbr % 10);
-	}
-	else
-	{
-		ft_putchr(nbr + '0');
-		i++;
-	}
-	return (i);
+	ft_putstr("\e[1;31mError: \e[1;97m");
+	ft_putstr(str);
+	ft_putstr("\n\e[0m");
+	exit(1);
 }

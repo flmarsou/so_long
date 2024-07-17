@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/12 09:42:15 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/07/12 10:29:23 by flmarsou         ###   ########.fr       */
+/*   Created: 2024/07/16 09:45:09 by flmarsou          #+#    #+#             */
+/*   Updated: 2024/07/17 15:25:50 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@
 # include <string.h>	// strerror
 # include <math.h>
 
-# include "../includes/ft_printf/includes/ft_printf.h"
+void		ft_putstr(const char *str);
+void		ft_puterr(const char *str);
+int			ft_strlen(const char *str);
+int			ft_strcmp(const char *str1, const char *str2);
 
 #endif

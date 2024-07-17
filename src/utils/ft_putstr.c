@@ -5,26 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/10 09:39:07 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/05/13 12:28:39 by flmarsou         ###   ########.fr       */
+/*   Created: 2024/07/17 12:57:44 by flmarsou          #+#    #+#             */
+/*   Updated: 2024/07/17 13:03:31 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "../../includes/so_long.h"
 
-int	ft_putstr(char *str)
+void	ft_putstr(const char *str)
 {
-	unsigned int	i;
-
-	i = 0;
-	if (str == NULL)
-	{
-		str = "(null)";
-	}
-	while (str[i])
-	{
-		write(1, &str[i], 1);
-		i++;
-	}
-	return (i);
+	while (*str)
+		write(1, str++, 1);
 }

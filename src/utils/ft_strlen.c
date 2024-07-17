@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/09 14:22:29 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/06/04 12:24:18 by flmarsou         ###   ########.fr       */
+/*   Created: 2024/07/17 12:54:04 by flmarsou          #+#    #+#             */
+/*   Updated: 2024/07/17 15:25:45 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "../../includes/so_long.h"
 
-# include <unistd.h>	// write()
-# include <stdarg.h>	// Variadic Functions
-# include <stdio.h>		// printf()
+int	ft_strlen(const char *str)
+{
+	int	i;
 
-int		ft_printf(const char *format, ...);
-
-int		ft_putchr(int c);
-int		ft_putstr(char *str);
-int		ft_putnbr(int nbr);
-int		ft_putuni(unsigned int nbr);
-int		ft_puthex(unsigned int nbr, char *base);
-int		ft_putptr(void *ptr);
-
-#endif
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
