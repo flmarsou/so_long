@@ -6,7 +6,7 @@
 #    By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/17 12:59:58 by flmarsou          #+#    #+#              #
-#    Updated: 2024/07/17 15:15:10 by flmarsou         ###   ########.fr        #
+#    Updated: 2024/07/18 10:04:58 by flmarsou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,11 +20,15 @@ SRC_UTILS	=	./src/utils/ft_putstr.c \
 				./src/utils/ft_puterr.c \
 				./src/utils/ft_strlen.c \
 				./src/utils/ft_strcmp.c \
+				./src/utils/ft_strchr.c \
+				./src/utils/ft_strdup.c \
+				./src/utils/ft_strjoin.c \
 
 SRC_MAP		=	./src/map/init_map.c \
+				./src/map/get_next_line.c \
 
 SOURCES		=	${SRC} ${SRC_UTILS} ${SRC_MAP}
-OBJECTS		=	${SOURCES:.c=.o}
+OBJECTS		=	${SOURCES:%.c=obj/%.o}
 
 # Variables
 CC			=	cc
@@ -35,13 +39,14 @@ RM			=	rm -rf
 all:		${EXE}
 
 ${EXE}:		${OBJECTS}
-			@${CC} ${CFLAGS} ${OBJECTS} ${LIBS} -o ${EXE}
+			@${CC} ${CFLAGS} ${OBJECTS} -o ${EXE}
 
-%.o:		%.c
-			@${CC} ${CFLAGS} -c $? -o $@
+obj/%.o:	%.c
+			@mkdir -p obj/$(dir $<)
+			@${CC} ${CFLAGS} -c $< -o $@
 
 clean:
-			@${RM} ${OBJECTS}
+			@${RM} obj
 
 fclean:		clean
 			@${RM} ${EXE}
