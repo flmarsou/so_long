@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 20:24:13 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/07/17 20:42:47 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/07/18 08:43:09 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	check_args(int argc, const char **argv)
 		ft_puterr("Too Few Argument!");
 	if (argc > 2)
 		ft_puterr("Too Many Arguments!");
-	if (ft_strcmp(&argv[1][ft_strlen(argv[1]) - 4], ".ber") != 0)
+	if (ft_strcmp(&argv[1][ft_strlen(argv[1]) - 4], ".ber"))
 		ft_puterr("Wrong Argument!");
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
