@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 09:45:09 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/07/18 09:03:36 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/07/22 15:35:03 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char		*ft_strdup(char *str);
 char		*ft_strjoin(char *str1, char *str2);
 
 // Map
-void		init_map(int argc, const char **argv);
+void		init_map(const 	char **argv, int fd);
 char		*get_next_line(int fd);
 
 #endif

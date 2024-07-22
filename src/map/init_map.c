@@ -6,30 +6,50 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 20:24:13 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/07/18 08:43:09 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/07/22 15:45:32 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
 
-static void	check_args(int argc, const char **argv)
+static int	count_line(int fd)
 {
-	int	fd;
+	int		count;
+	char	buffer;
+	int		byte_read;
 
-	if (argc == 1 || argv[1][0] == '\0')
-		ft_puterr("Too Few Argument!");
-	if (argc > 2)
-		ft_puterr("Too Many Arguments!");
-	if (ft_strcmp(&argv[1][ft_strlen(argv[1]) - 4], ".ber"))
-		ft_puterr("Wrong Argument!");
-	fd = open(argv[1], O_RDONLY);
-	if (fd == -1)
-		ft_puterr("File Not Found!");
-	else
-		close(fd);
+	count = 0;
+	buffer = 0;
+	byte_read = 1;
+	while (byte_read > 0)
+	{
+		byte_read = read(fd, &buffer, 1);
+		if (buffer == '\n')
+			count++;
+	}
+	if (buffer != '\n' && byte_read == 0)
+		count++;
+	return (count);
 }
 
-void	init_map(int argc, const char **argv)
+void	init_map(const char **argv, int fd)
 {
-	check_args(argc, argv);
+	char	**arr;
+	char	*line;
+	int		i;
+
+	(void)argv;
+	arr = (char **)malloc(sizeof(char *) * (count_line(fd) + 1));
+	if (!arr)
+		ft_puterr("Allocation Failed! [./src/map/init_map]");
+	// Todo: Need to "reset" the FD here because of the read() in count_line().
+	line = get_next_line(fd);
+	i = 0;
+	while (line)
+	{
+		arr[i] = line;
+		i++;
+		line = get_next_line(fd);
+	}
+	arr[i] = NULL;
 }
