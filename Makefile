@@ -6,7 +6,7 @@
 #    By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/17 12:59:58 by flmarsou          #+#    #+#              #
-#    Updated: 2024/07/18 10:04:58 by flmarsou         ###   ########.fr        #
+#    Updated: 2024/07/23 13:46:14 by flmarsou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,13 +26,14 @@ SRC_UTILS	=	./src/utils/ft_putstr.c \
 
 SRC_MAP		=	./src/map/init_map.c \
 				./src/map/get_next_line.c \
+				./src/map/parse_map.c \
 
 SOURCES		=	${SRC} ${SRC_UTILS} ${SRC_MAP}
 OBJECTS		=	${SOURCES:%.c=obj/%.o}
 
 # Variables
 CC			=	cc
-CFLAGS		=	-Wall -Werror -Wextra -g3 -fsanitize=address
+CFLAGS		=	-Wall -Werror -Wextra -fsanitize=address -g3
 RM			=	rm -rf
 
 # Makefile
