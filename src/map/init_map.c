@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 20:24:13 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/07/22 15:45:32 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/07/23 13:22:26 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,27 +29,34 @@ static int	count_line(int fd)
 	}
 	if (buffer != '\n' && byte_read == 0)
 		count++;
+	close(fd);
 	return (count);
 }
 
-void	init_map(const char **argv, int fd)
+t_map	init_map(const char **argv)
 {
-	char	**arr;
+	t_map	map;
 	char	*line;
 	int		i;
+	int		fd;
 
-	(void)argv;
-	arr = (char **)malloc(sizeof(char *) * (count_line(fd) + 1));
-	if (!arr)
+	fd = open(argv[1], O_RDONLY);
+	map.map = (char **)malloc(sizeof(char *) * (count_line(fd) + 1));
+	if (!map.map)
+	{
 		ft_puterr("Allocation Failed! [./src/map/init_map]");
-	// Todo: Need to "reset" the FD here because of the read() in count_line().
+		close(fd);
+	}
+	fd = open(argv[1], O_RDONLY);
 	line = get_next_line(fd);
 	i = 0;
 	while (line)
 	{
-		arr[i] = line;
+		map.map[i] = line;
 		i++;
 		line = get_next_line(fd);
 	}
-	arr[i] = NULL;
+	map.map[i] = NULL;
+	close(fd);
+	return (map);
 }
