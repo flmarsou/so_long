@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 09:45:09 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/07/22 15:35:03 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/07/23 15:43:51 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,17 @@
 # include <string.h>	// strerror
 # include <math.h>
 
+typedef enum e_bool
+{
+	false = 0,
+	true = 1
+}	t_bool;
+
+typedef struct s_map
+{
+	char	**map;
+}			t_map;
+
 // Utils
 void		ft_putstr(const char *str);
 void		ft_puterr(const char *str);
@@ -30,7 +41,8 @@ char		*ft_strdup(char *str);
 char		*ft_strjoin(char *str1, char *str2);
 
 // Map
-void		init_map(const 	char **argv, int fd);
+t_map		init_map(const char **argv);
 char		*get_next_line(int fd);
+void		parse_map(t_map map);
 
 #endif
