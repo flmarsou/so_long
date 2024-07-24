@@ -1,4 +1,4 @@
-# 🦊 What is Minitalk?
+# 🦊 What is So Long?
 
 WIP
 
@@ -14,6 +14,8 @@ Maps can be found in the [`maps`](https://github.com/flmarsou/3.3-so_long/tree/m
 - `P`: Player
 - `C`: Collectible
 - `E`: Exit
+- Maps need to be rectangles!
+- Maps need to be possible (reaching all coins/exit)!
 
 # 🧼 Cleaning
 
