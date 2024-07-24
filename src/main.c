@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 12:07:25 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/07/23 14:19:58 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/07/24 16:22:35 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@ static void	check_args(int argc, const char **argv)
 	int	fd;
 
 	if (argc == 1 || argv[1][0] == '\0')
-		ft_puterr("Too Few Argument!");
+		ft_puterr("Too Few Argument!", 1);
 	if (argc > 2)
-		ft_puterr("Too Many Arguments!");
+		ft_puterr("Too Many Arguments!", 1);
 	if (ft_strcmp(&argv[1][ft_strlen(argv[1]) - 4], ".ber"))
-		ft_puterr("Wrong Argument!");
+		ft_puterr("Wrong Argument!", 1);
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
-		ft_puterr("File Not Found!");
+		ft_puterr("File Not Found!", 1);
 	else
 		close(fd);
 }
@@ -35,6 +35,6 @@ int	main(int argc, const char **argv)
 
 	check_args(argc, argv);
 	map = init_map(argv);
-	parse_map(map);
+	parse_map(&map);
 	return (0);
 }

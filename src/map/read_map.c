@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   read_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 09:00:24 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/07/18 09:48:13 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/07/24 08:30:11 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,16 +56,11 @@ static char	*get_line(char *stash)
 		return (NULL);
 	while (stash[i] && stash[i] != '\n')
 		i++;
-	line = (char *)malloc(sizeof(char) * (i + 2));
+	line = (char *)malloc(sizeof(char) * (i + 1));
 	if (line == NULL)
 		return (NULL);
 	i = 0;
 	while (stash[i] && stash[i] != '\n')
-	{
-		line[i] = stash[i];
-		i++;
-	}
-	if (stash[i] == '\n')
 	{
 		line[i] = stash[i];
 		i++;
@@ -102,7 +97,7 @@ static char	*read_line(int fd, char *stash)
 	return (stash);
 }
 
-char	*get_next_line(int fd)
+char	*read_map(int fd)
 {
 	static char	*stash;
 	char		*line;

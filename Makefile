@@ -6,7 +6,7 @@
 #    By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/17 12:59:58 by flmarsou          #+#    #+#              #
-#    Updated: 2024/07/23 13:46:14 by flmarsou         ###   ########.fr        #
+#    Updated: 2024/07/24 08:37:28 by flmarsou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ SRC_UTILS	=	./src/utils/ft_putstr.c \
 				./src/utils/ft_strjoin.c \
 
 SRC_MAP		=	./src/map/init_map.c \
-				./src/map/get_next_line.c \
+				./src/map/read_map.c \
 				./src/map/parse_map.c \
 
 SOURCES		=	${SRC} ${SRC_UTILS} ${SRC_MAP}

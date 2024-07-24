@@ -6,13 +6,13 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 20:24:13 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/07/23 13:22:26 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/07/24 16:02:41 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
 
-static int	count_line(int fd)
+static int	counter(int fd)
 {
 	int		count;
 	char	buffer;
@@ -41,20 +41,20 @@ t_map	init_map(const char **argv)
 	int		fd;
 
 	fd = open(argv[1], O_RDONLY);
-	map.map = (char **)malloc(sizeof(char *) * (count_line(fd) + 1));
+	map.map = (const char **)malloc(sizeof(const char *) * (counter(fd) + 1));
 	if (!map.map)
 	{
-		ft_puterr("Allocation Failed! [./src/map/init_map]");
+		ft_puterr("Allocation Failed! [./src/map/init_map]", 1);
 		close(fd);
 	}
 	fd = open(argv[1], O_RDONLY);
-	line = get_next_line(fd);
+	line = read_map(fd);
 	i = 0;
 	while (line)
 	{
 		map.map[i] = line;
 		i++;
-		line = get_next_line(fd);
+		line = read_map(fd);
 	}
 	map.map[i] = NULL;
 	close(fd);
