@@ -6,13 +6,13 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 12:07:25 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/07/24 16:22:35 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/07/25 15:34:56 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-static void	check_args(int argc, const char **argv)
+static void	main_args(int argc, const char **argv)
 {
 	int	fd;
 
@@ -25,16 +25,26 @@ static void	check_args(int argc, const char **argv)
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
 		ft_puterr("File Not Found!", 1);
-	else
-		close(fd);
+	close(fd);
+}
+
+static void	main_map(const char **argv)
+{
+	t_map	map;
+
+	map.collectible = 0;
+	map.player = 0;
+	map.exit = 0;
+	map.height = 0;
+	map.width = 0;
+	map = init_map(argv);
+	parse_map(&map);
+	exit(0);
 }
 
 int	main(int argc, const char **argv)
 {
-	t_map	map;
-
-	check_args(argc, argv);
-	map = init_map(argv);
-	parse_map(&map);
+	main_args(argc, argv);
+	main_map(argv);
 	return (0);
 }
