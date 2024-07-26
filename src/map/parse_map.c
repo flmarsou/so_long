@@ -6,26 +6,27 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 12:55:19 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/07/25 15:48:08 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/07/26 12:43:15 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
 
 // Checks if the map file contains only correct characters (1, 0, P, C, E).
-static t_bool	is_valid_char(t_map *map)
+static t_bool	is_valid_char(t_game *game)
 {
 	unsigned int	i;
 	unsigned int	j;
 
 	i = 0;
-	while (map->map[i])
+	while (game->map[i])
 	{
 		j = 0;
-		while (map->map[i][j])
+		while (game->map[i][j])
 		{
-			if (map->map[i][j] != '1' && map->map[i][j] != '0' && map->map[i][j]
-				!= 'C' && map->map[i][j] != 'P' && map->map[i][j] != 'E')
+			if (game->map[i][j] != '1' && game->map[i][j] != '0' &&
+				game->map[i][j] != 'C' && game->map[i][j] != 'P' &&
+					game->map[i][j] != 'E')
 				return (false);
 			j++;
 		}
@@ -35,34 +36,34 @@ static t_bool	is_valid_char(t_map *map)
 }
 
 // Checks if there is exactly one player and one exit, also counts collectibles.
-static t_bool	is_valid_count(t_map *map)
+static t_bool	is_valid_count(t_game *game)
 {
 	unsigned int	i;
 	unsigned int	j;
 
 	i = 0;
-	while (map->map[i])
+	while (game->map[i])
 	{
 		j = 0;
-		while (map->map[i][j])
+		while (game->map[i][j])
 		{
-			if (map->map[i][j] == 'C')
-				map->collectible++;
-			if (map->map[i][j] == 'P')
-				map->player++;
-			if (map->map[i][j] == 'E')
-				map->exit++;
+			if (game->map[i][j] == 'C')
+				game->count.collectible++;
+			if (game->map[i][j] == 'P')
+				game->count.player++;
+			if (game->map[i][j] == 'E')
+				game->count.exit++;
 			j++;
 		}
 		i++;
 	}
-	if (map->player != 1 || map->exit != 1)
+	if (game->count.player != 1 || game->count.exit != 1)
 		return (false);
 	return (true);
 }
 
 // Checks if the map is rectangular.
-static t_bool	is_valid_shape(t_map *map)
+static t_bool	is_valid_shape(t_game *game)
 {
 	unsigned int	i;
 	unsigned int	height;
@@ -70,59 +71,61 @@ static t_bool	is_valid_shape(t_map *map)
 
 	i = 0;
 	height = 0;
-	width = ft_strlen(map->map[i]);
-	while (map->map[i])
+	width = ft_strlen(game->map[i]);
+	while (game->map[i])
 	{
-		if (ft_strlen(map->map[i]) != 0)
+		if (ft_strlen(game->map[i]) != 0)
 		{
-			if ((unsigned int)ft_strlen(map->map[i]) != width)
+			if ((unsigned int)ft_strlen(game->map[i]) != width)
 				return (false);
 			height++;
 		}
 		i++;
 	}
-	map->height = height;
-	map->width = width;
+	game->height = height;
+	game->width = width;
 	return (true);
 }
 
 // Checks if the map is enclosed.
-static t_bool	is_valid_close(t_map *map)
+static t_bool	is_valid_close(t_game *game)
 {
 	unsigned int	i;
 
 	i = 0;
-	while (map->map[0][i])
+	while (game->map[0][i])
 	{
-		if (map->map[0][i] != '1')
+		if (game->map[0][i] != '1')
 			return (false);
 		i++;
 	}
 	i = 0;
-	while (map->map[map->height - 1][i])
+	while (game->map[game->height - 1][i])
 	{
-		if (map->map[map->height - 1][i] != '1')
+		if (game->map[game->height - 1][i] != '1')
 			return (false);
 		i++;
 	}
 	i = 0;
-	while (i < map->height)
+	while (i < game->height)
 	{
-		if (map->map[i][0] != '1' || map->map[i][map->width - 1] != '1')
+		if (game->map[i][0] != '1' || game->map[i][game->width - 1] != '1')
 			return (false);
 		i++;
 	}
 	return (true);
 }
 
-void	parse_map(t_map *map)
+void	parse_map(t_game *game)
 {
-	if (!is_valid_char(map))
+	if (!is_valid_char(game))
 		ft_puterr("Invalid characters in map!", 2);
-	if (!is_valid_count(map))
+	if (!is_valid_count(game))
 		ft_puterr("Invalid amount of player or exit!", 2);
-	if (!is_valid_shape(map))
+	if (!is_valid_shape(game))
 		ft_puterr("Map has wrong shape or placement!", 2);
-	if (!is_valid_close(map))
+	if (!is_valid_close(game))
 		ft_puterr("Map is not enclosed!", 2);
+	if (!is_valid_path(game))
+		ft_puterr("Map is impossible!", 2);
 }
