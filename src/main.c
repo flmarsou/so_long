@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 12:07:25 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/07/25 15:34:56 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/07/26 10:20:27 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,17 @@ static void	main_args(int argc, const char **argv)
 
 static void	main_map(const char **argv)
 {
-	t_map	map;
+	t_game	game;
 
-	map.collectible = 0;
-	map.player = 0;
-	map.exit = 0;
-	map.height = 0;
-	map.width = 0;
-	map = init_map(argv);
-	parse_map(&map);
+	game.count.collectible = 0;
+	game.count.player = 0;
+	game.count.exit = 0;
+	game.pos.x = 0;
+	game.pos.y = 0;
+	game.height = 0;
+	game.width = 0;
+	game = init_map(argv);
+	parse_map(&game);
 	exit(0);
 }
 
