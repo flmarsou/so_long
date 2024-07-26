@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 09:45:09 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/07/25 15:38:22 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/07/26 11:34:31 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,22 +26,28 @@ typedef enum e_bool
 	true = 1
 }	t_bool;
 
-typedef struct s_map
+struct s_count
 {
-	const char		**map;
-	const char		**map_pathfind;
 	unsigned int	player;
 	unsigned int	collectible;
 	unsigned int	exit;
+};
+
+struct s_pos
+{
+	unsigned int	x;
+	unsigned int	y;
+};
+
+typedef struct s_game
+{
+	struct s_count	count;
+	struct s_pos	pos;
+	const char		**map;
 	unsigned int	height;
 	unsigned int	width;
-}	t_map;
-
-typedef struct s_pos
-{
-	int			x;
-	int			y;
-}	t_pos;
+	char			**floodfill;
+}	t_game;
 
 // Utils
 void		ft_putstr(const char *str);
@@ -53,9 +59,9 @@ char		*ft_strdup(char *str);
 char		*ft_strjoin(char *str1, char *str2);
 
 // Map
-t_map		init_map(const char **argv);
+t_game		init_map(const char **argv);
 char		*read_map(int fd);
-void		parse_map(t_map *map);
-t_bool		ispath(t_map *map);
+void		parse_map(t_game *game);
+t_bool		is_valid_path(t_game *game);
 
 #endif
