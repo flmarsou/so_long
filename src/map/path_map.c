@@ -20,7 +20,6 @@ static void	floodfill_free(t_game *game)
 	i = 0;
 	while (game->floodfill[i])
 	{
-		printf("%s\n", game->floodfill[i]);
 		free(game->floodfill[i]);
 		i++;
 	}
@@ -42,7 +41,7 @@ static t_bool	fill(t_game *game, unsigned int x, unsigned int y)
 		exit++;
 	if (game->floodfill[x][y] == '1' || game->floodfill[x][y] == 'X')
 		return (false);
-	if (exit == game->count.exit && coins == game->count.collectible)
+	if (exit && coins == game->count.collectible)
 		return (true);
 	game->floodfill[x][y] = 'X';
 	if (fill(game, x + 1, y) || fill(game, x, y + 1)
