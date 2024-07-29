@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 11:37:33 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/07/26 12:59:39 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/07/29 15:53:07 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,23 +20,30 @@ static void	floodfill_free(t_game *game)
 	i = 0;
 	while (game->floodfill[i])
 	{
+		printf("%s\n", game->floodfill[i]);
 		free(game->floodfill[i]);
 		i++;
 	}
 	free(game->floodfill);
 }
 
-// Checks if the current position is a wall OR already visited.
+// Checks if the current position is a coin and adds to the counter.
 // Checks if the current position is the exit.
+// Checks if the current position is a wall OR already visited.
 // Recursively calls itself to check all four directions.
 static t_bool	fill(t_game *game, unsigned int x, unsigned int y)
 {
+	static unsigned int	coins = 0;
+	static unsigned int	exit = 0;
+
+	if (game->floodfill[x][y] == 'C')
+		coins++;
+	if (game->floodfill[x][y] == 'E')
+		exit++;
 	if (game->floodfill[x][y] == '1' || game->floodfill[x][y] == 'X')
 		return (false);
-	if (game->floodfill[x][y] == 'E')
+	if (exit == game->count.exit && coins == game->count.collectible)
 		return (true);
-	if (game->floodfill[x][y] == 'C')
-		col++;
 	game->floodfill[x][y] = 'X';
 	if (fill(game, x + 1, y) || fill(game, x, y + 1)
 		|| fill(game, x - 1, y) || fill(game, x, y - 1))
