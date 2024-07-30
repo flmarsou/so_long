@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 09:45:09 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/07/26 11:34:31 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/07/30 16:57:23 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdlib.h>	// malloc, free, exit
 # include <stdio.h>		// perror
 # include <string.h>	// strerror
-# include <math.h>
+# include <stdarg.h>	// Variadic Functions
 
 typedef enum e_bool
 {
@@ -49,19 +49,46 @@ typedef struct s_game
 	char			**floodfill;
 }	t_game;
 
-// Utils
+//===============================//
+//             Utils             //
+//===============================//
+
+void		ft_putchar(char c);
 void		ft_putstr(const char *str);
-void		ft_puterr(const char *str, unsigned int error);
+void		ft_puterr(const char *str);
+void		ft_putnbr(int nbr);
+void		ft_putuni(unsigned int nbr);
+void		ft_printf(const char *format, ...);
 int			ft_strlen(const char *str);
 int			ft_strcmp(const char *str1, const char *str2);
 char		*ft_strchr(char *str, char target);
 char		*ft_strdup(char *str);
 char		*ft_strjoin(char *str1, char *str2);
 
-// Map
+//===============================//
+//              Map              //
+//===============================//
+char		*get_next_line(int fd);
 t_game		init_map(const char **argv);
-char		*read_map(int fd);
-void		parse_map(t_game *game);
+void		free_map(t_game *game);
+
+//===============================//
+//            Parsing            //
+//===============================//
+
+// Checks if the map file contains only correct characters (1, 0, P, C, E).
+t_bool		is_valid_char(t_game *game);
+
+// Checks if there is one player, collectibles, and one exit.
+t_bool		is_valid_count(t_game *game);
+
+// Checks if the map is rectangular.
+t_bool		is_valid_shape(t_game *game);
+
+// Checks if the map is enclosed.
+t_bool		is_valid_close(t_game *game);
+
+// Checks if the map is possible, if player can reach all collectibles and exit.
 t_bool		is_valid_path(t_game *game);
 
 #endif

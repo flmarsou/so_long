@@ -6,7 +6,7 @@
 #    By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/17 12:59:58 by flmarsou          #+#    #+#              #
-#    Updated: 2024/07/26 11:11:22 by flmarsou         ###   ########.fr        #
+#    Updated: 2024/07/30 16:43:31 by flmarsou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,11 @@ EXE			=	so_long
 # Files
 SRC			=	./src/main.c \
 
-SRC_UTILS	=	./src/utils/ft_putstr.c \
+SRC_UTILS	=	./src/utils/ft_putchar.c \
+				./src/utils/ft_putstr.c \
+				./src/utils/ft_putnbr.c \
+				./src/utils/ft_putuni.c \
+				./src/utils/ft_printf.c \
 				./src/utils/ft_puterr.c \
 				./src/utils/ft_strlen.c \
 				./src/utils/ft_strcmp.c \
@@ -25,11 +29,16 @@ SRC_UTILS	=	./src/utils/ft_putstr.c \
 				./src/utils/ft_strjoin.c \
 
 SRC_MAP		=	./src/map/init_map.c \
-				./src/map/read_map.c \
-				./src/map/parse_map.c \
-				./src/map/path_map.c \
+				./src/map/get_next_line.c \
+				./src/map/free_map.c \
 
-SOURCES		=	${SRC} ${SRC_UTILS} ${SRC_MAP}
+SRC_PARSER	=	./src/parser/is_valid_char.c \
+				./src/parser/is_valid_count.c \
+				./src/parser/is_valid_shape.c \
+				./src/parser/is_valid_close.c \
+				./src/parser/is_valid_path.c \
+
+SOURCES		=	${SRC} ${SRC_UTILS} ${SRC_MAP} ${SRC_PARSER}
 OBJECTS		=	${SOURCES:%.c=obj/%.o}
 
 # Variables
