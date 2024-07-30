@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 20:24:13 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/07/26 09:43:13 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/07/30 13:48:07 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,17 +44,17 @@ t_game	init_map(const char **argv)
 	game.map = (const char **)malloc(sizeof(const char *) * (counter(fd) + 1));
 	if (!game.map)
 	{
-		ft_puterr("Allocation Failed! [./src/map/init_map]", 1);
+		ft_puterr("Allocation Failed! [./src/map/init_map]");
 		close(fd);
 	}
 	fd = open(argv[1], O_RDONLY);
-	line = read_map(fd);
+	line = get_next_line(fd);
 	i = 0;
 	while (line)
 	{
 		game.map[i] = line;
 		i++;
-		line = read_map(fd);
+		line = get_next_line(fd);
 	}
 	game.map[i] = NULL;
 	close(fd);

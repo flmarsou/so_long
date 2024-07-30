@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   path_map.c                                         :+:      :+:    :+:   */
+/*   is_valid_path.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/25 11:37:33 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/07/29 15:53:07 by flmarsou         ###   ########.fr       */
+/*   Created: 2024/07/30 16:38:59 by flmarsou          #+#    #+#             */
+/*   Updated: 2024/07/30 16:46:53 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void	floodfill_free(t_game *game)
 }
 
 // Checks if the current position is a coin and adds to the counter.
-// Checks if the current position is the exit.
+// Checks if the current position is the exit and adds to the counter.
 // Checks if the current position is a wall OR already visited.
 // Recursively calls itself to check all four directions.
 static t_bool	fill(t_game *game, unsigned int x, unsigned int y)
@@ -85,12 +85,12 @@ static void	floodfill_alloc(t_game *game)
 	height = game->height;
 	game->floodfill = (char **)malloc(sizeof(char *) * (height + 1));
 	if (!game->floodfill)
-		ft_puterr("Allocation Failed! [./src/map/path_map]", 1);
+		ft_puterr("Allocation Failed! [./src/map/path_map]");
 	while (i < height)
 	{
 		game->floodfill[i] = ft_strdup((char *)game->map[i]);
 		if (!game->floodfill[i])
-			ft_puterr("Allocation Failed! [./src/map/path_map]", 1);
+			ft_puterr("Allocation Failed! [./src/map/path_map]");
 		i++;
 	}
 	game->floodfill[i] = NULL;
@@ -103,5 +103,7 @@ t_bool	is_valid_path(t_game *game)
 	floodfill_alloc(game);
 	valid = floodfill(game);
 	floodfill_free(game);
+	if (!valid)
+		ft_putstr("\e[1;31m[!] - Fail: \e[1;97mMap is not possible!\n\e[0m");
 	return (valid);
 }

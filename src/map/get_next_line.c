@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_map.c                                         :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 09:00:24 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/07/24 08:30:11 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/07/30 13:46:03 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ static char	*read_line(int fd, char *stash)
 	return (stash);
 }
 
-char	*read_map(int fd)
+char	*get_next_line(int fd)
 {
 	static char	*stash;
 	char		*line;
