@@ -40,6 +40,4 @@ It must be <ins>**possible to reach all collectible(s)**</ins> and <ins>**the ex
 # 📑 List of Functions
 
 ## 1. Map
-- [x] [`init_map`](https://github.com/flmarsou/so_long/blob/main/src/map/init_map.c) - Stores each line of the .ber file into an allocated array.
-- [x] [`read_map`](https://github.com/flmarsou/so_long/blob/main/src/map/read_map.c) - Slightly modified version of [get_next_line](https://github.com/flmarsou/get_next_line).
-- [x] [`parse_map`](https://github.com/flmarsou/so_long/blob/main/src/map/parse_map.c) - Checks for characters, size, and duplicates.
+
