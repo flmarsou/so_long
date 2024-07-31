@@ -15,7 +15,7 @@
 static void	print_error(unsigned int y)
 {
 	ft_putstr("\e[1;31m[!] - Fail: \e[1;97m");
-	ft_printf("Map has wrong shape at Y: %u", y);
+	ft_printf("Map has wrong shape at Y: %u", y + 1);
 	ft_putstr("\n\e[0m");
 }
 
