@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 09:45:09 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/08/01 09:40:20 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/08/01 15:33:24 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@
 # include <stdio.h>		// perror
 # include <string.h>	// strerror
 # include <stdarg.h>	// Variadic Functions
+# include "minilibx-linux/mlx.h"	// MiniLibX
+
+# define TILES	64
 
 // Boolean
 typedef enum e_bool
@@ -42,11 +45,18 @@ struct s_pos
 	unsigned int	y;
 };
 
+struct s_mlx
+{
+	void			*mlx;
+	void			*win;
+};
+
 // Main
 typedef struct s_game
 {
 	struct s_count	count;
 	struct s_pos	pos;
+	struct s_mlx	mlx;
 	const char		**map;
 	unsigned int	height;
 	unsigned int	width;

@@ -6,7 +6,7 @@
 #    By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/17 12:59:58 by flmarsou          #+#    #+#              #
-#    Updated: 2024/08/01 14:11:01 by flmarsou         ###   ########.fr        #
+#    Updated: 2024/08/01 15:32:54 by flmarsou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,6 +41,9 @@ SRC_PARSER	=	./src/parser/is_valid_char.c \
 SOURCES		=	${SRC} ${SRC_UTILS} ${SRC_MAP} ${SRC_PARSER}
 OBJECTS		=	${SOURCES:%.c=obj/%.o}
 
+# Libraries
+MINILIBX	=	./includes/minilibx-linux
+
 # Variables
 CC			=	cc
 CFLAGS		=	-Wall -Werror -Wextra -fsanitize=address -g
@@ -50,13 +53,15 @@ RM			=	rm -rf
 all:		${EXE}
 
 ${EXE}:		${OBJECTS}
-			@${CC} ${CFLAGS} ${OBJECTS} -o ${EXE}
+			@${MAKE} -C ${MINILIBX} > /dev/null 2>&1
+			@${CC} ${CFLAGS} ${OBJECTS} -L${MINILIBX} -lmlx -lX11 -lXext -lm -o ${EXE}
 
 obj/%.o:	%.c
 			@mkdir -p obj/$(dir $<)
 			@${CC} ${CFLAGS} -c $< -o $@
 
 clean:
+			@${MAKE} -C ${MINILIBX} clean > /dev/null
 			@${RM} obj
 
 fclean:		clean
