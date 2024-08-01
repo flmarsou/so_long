@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 20:24:13 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/07/30 13:48:07 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/08/01 12:54:49 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,16 @@ static int	counter(int fd)
 	return (count);
 }
 
-t_game	init_map(const char **argv)
+const char	**init_map(const char **argv)
 {
-	t_game	game;
-	char	*line;
-	int		i;
-	int		fd;
+	const char	**map;
+	char		*line;
+	int			i;
+	int			fd;
 
 	fd = open(argv[1], O_RDONLY);
-	game.map = (const char **)malloc(sizeof(const char *) * (counter(fd) + 1));
-	if (!game.map)
+	map = (const char **)malloc(sizeof(const char *) * (counter(fd) + 1));
+	if (!map)
 	{
 		ft_puterr("Allocation Failed! [./src/map/init_map]");
 		close(fd);
@@ -52,11 +52,11 @@ t_game	init_map(const char **argv)
 	i = 0;
 	while (line)
 	{
-		game.map[i] = line;
+		map[i] = line;
 		i++;
 		line = get_next_line(fd);
 	}
-	game.map[i] = NULL;
+	map[i] = NULL;
 	close(fd);
-	return (game);
+	return (map);
 }
