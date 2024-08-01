@@ -6,7 +6,7 @@
 #    By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/17 12:59:58 by flmarsou          #+#    #+#              #
-#    Updated: 2024/07/30 16:43:31 by flmarsou         ###   ########.fr        #
+#    Updated: 2024/08/01 14:11:01 by flmarsou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,7 @@ OBJECTS		=	${SOURCES:%.c=obj/%.o}
 
 # Variables
 CC			=	cc
-CFLAGS		=	-Wall -Werror -Wextra -fsanitize=address -g3
+CFLAGS		=	-Wall -Werror -Wextra -fsanitize=address -g
 RM			=	rm -rf
 
 # Makefile

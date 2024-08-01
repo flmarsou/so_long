@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 09:45:09 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/07/30 16:57:23 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/08/01 09:40:20 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,14 @@
 # include <string.h>	// strerror
 # include <stdarg.h>	// Variadic Functions
 
+// Boolean
 typedef enum e_bool
 {
 	false = 0,
 	true = 1
 }	t_bool;
 
+// Entities Count
 struct s_count
 {
 	unsigned int	player;
@@ -33,12 +35,14 @@ struct s_count
 	unsigned int	exit;
 };
 
+// Player Position
 struct s_pos
 {
 	unsigned int	x;
 	unsigned int	y;
 };
 
+// Main
 typedef struct s_game
 {
 	struct s_count	count;
@@ -68,8 +72,9 @@ char		*ft_strjoin(char *str1, char *str2);
 //===============================//
 //              Map              //
 //===============================//
+
 char		*get_next_line(int fd);
-t_game		init_map(const char **argv);
+const char	**init_map(const char **argv);
 void		free_map(t_game *game);
 
 //===============================//
