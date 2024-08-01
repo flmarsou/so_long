@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 12:07:25 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/07/30 16:58:25 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/08/01 13:55:56 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,31 +31,35 @@ static void	main_args(int argc, const char **argv)
 	close(fd);
 }
 
-static void	main_map(const char **argv)
+static void	main_map(const char **argv, t_game *game)
 {
-	t_game	game;
-
-	game.count.collectible = 0;
-	game.count.player = 0;
-	game.count.exit = 0;
-	game.pos.x = 0;
-	game.pos.y = 0;
-	game.height = 0;
-	game.width = 0;
-	game = init_map(argv);
-	if (!is_valid_char(&game) || !is_valid_count(&game)
-		|| !is_valid_shape(&game) || !is_valid_close(&game)
-		|| !is_valid_path(&game))
+	game->count.collectible = 0;
+	game->count.player = 0;
+	game->count.exit = 0;
+	game->pos.x = 0;
+	game->pos.y = 0;
+	game->height = 0;
+	game->width = 0;
+	game->map = init_map(argv);
+	if (!is_valid_char(game) || !is_valid_count(game)
+		|| !is_valid_shape(game) || !is_valid_close(game)
+		|| !is_valid_path(game))
 	{
-		free_map(&game);
+		free_map(game);
 		exit (1);
 	}
-	exit(0);
+	free_map(game);
 }
 
 int	main(int argc, const char **argv)
 {
+	t_game	*game;
+
+	game = (t_game *)malloc(sizeof(t_game));
+	if (!game)
+		return (ft_puterr("Allocation Failed! [./src/map/init_map]"), 1);
 	main_args(argc, argv);
-	main_map(argv);
+	main_map(argv, game);
+	free(game);
 	return (0);
 }
