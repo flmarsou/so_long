@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 12:07:25 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/08/01 15:27:44 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/08/02 11:18:53 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,26 +31,6 @@ static void	main_args(int argc, const char **argv)
 	close(fd);
 }
 
-static void	main_map(const char **argv, t_game *game)
-{
-	game->count.collectible = 0;
-	game->count.player = 0;
-	game->count.exit = 0;
-	game->pos.x = 0;
-	game->pos.y = 0;
-	game->height = 0;
-	game->width = 0;
-	game->map = init_map(argv);
-	if (!is_valid_char(game) || !is_valid_count(game)
-		|| !is_valid_shape(game) || !is_valid_close(game)
-		|| !is_valid_path(game))
-	{
-		free_map(game);
-		exit (1);
-	}
-	free_map(game);
-}
-
 int	main(int argc, const char **argv)
 {
 	t_game	*game;
@@ -59,7 +39,9 @@ int	main(int argc, const char **argv)
 	if (!game)
 		return (ft_puterr("Allocation Failed! [./src/map/init_map]"), 1);
 	main_args(argc, argv);
-	main_map(argv, game);
+	init_map(argv, game);
+	init_display(game);
+	mlx_loop(game->mlx.mlx);
 	free(game);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 20:24:13 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/08/01 12:54:49 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/08/02 09:58:27 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static int	counter(int fd)
 	return (count);
 }
 
-const char	**init_map(const char **argv)
+static const char	**allocate_map(const char **argv)
 {
 	const char	**map;
 	char		*line;
@@ -59,4 +59,23 @@ const char	**init_map(const char **argv)
 	map[i] = NULL;
 	close(fd);
 	return (map);
+}
+
+void	init_map(const char **argv, t_game *game)
+{
+	game->count.collectible = 0;
+	game->count.player = 0;
+	game->count.exit = 0;
+	game->pos.x = 0;
+	game->pos.y = 0;
+	game->height = 0;
+	game->width = 0;
+	game->map = allocate_map(argv);
+	if (!is_valid_char(game) || !is_valid_count(game)
+		|| !is_valid_shape(game) || !is_valid_close(game)
+		|| !is_valid_path(game))
+	{
+		free_map(game);
+		exit (1);
+	}
 }
