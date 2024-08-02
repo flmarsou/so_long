@@ -6,7 +6,7 @@
 #    By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/17 12:59:58 by flmarsou          #+#    #+#              #
-#    Updated: 2024/08/01 15:32:54 by flmarsou         ###   ########.fr        #
+#    Updated: 2024/08/02 11:17:38 by flmarsou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,10 @@ SRC_PARSER	=	./src/parser/is_valid_char.c \
 				./src/parser/is_valid_close.c \
 				./src/parser/is_valid_path.c \
 
-SOURCES		=	${SRC} ${SRC_UTILS} ${SRC_MAP} ${SRC_PARSER}
+SRC_DISPLAY	=	./src/display/init_display.c \
+				./src/display/init_sprites.c \
+
+SOURCES		=	${SRC} ${SRC_UTILS} ${SRC_MAP} ${SRC_PARSER} ${SRC_DISPLAY}
 OBJECTS		=	${SOURCES:%.c=obj/%.o}
 
 # Libraries

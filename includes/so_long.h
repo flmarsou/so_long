@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 09:45:09 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/08/01 15:33:24 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/08/02 12:15:27 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,16 @@
 # include "minilibx-linux/mlx.h"	// MiniLibX
 
 # define TILES	64
+
+// Sprites
+# define SPRITE_PE		"./assets/sprites/player_east.xpm"
+# define SPRITE_PN		"./assets/sprites/player_north.xpm"
+# define SPRITE_PS		"./assets/sprites/player_south.xpm"
+# define SPRITE_PW		"./assets/sprites/player_west.xpm"
+
+# define SPRITE_WALL	"./assets.sprites/wall.xpm"
+
+# define SPRITE_GROUND	"./assets.sprites/ground.xpm"
 
 // Boolean
 typedef enum e_bool
@@ -49,6 +59,8 @@ struct s_mlx
 {
 	void			*mlx;
 	void			*win;
+	void			*xpm_wall;
+	void			*xpm_ground;
 };
 
 // Main
@@ -84,7 +96,7 @@ char		*ft_strjoin(char *str1, char *str2);
 //===============================//
 
 char		*get_next_line(int fd);
-const char	**init_map(const char **argv);
+void		init_map(const char **argv, t_game *game);
 void		free_map(t_game *game);
 
 //===============================//
@@ -105,5 +117,11 @@ t_bool		is_valid_close(t_game *game);
 
 // Checks if the map is possible, if player can reach all collectibles and exit.
 t_bool		is_valid_path(t_game *game);
+
+//===============================//
+//              MLX              //
+//===============================//
+
+void		init_display(t_game *game);
 
 #endif
