@@ -40,4 +40,26 @@ It must be <ins>**possible to reach all collectible(s)**</ins> and <ins>**the ex
 # 📑 List of Functions
 
 ## 1. Map
+- [x] [`get_next_line`](https://github.com/flmarsou/so_long/blob/main/src/map/get_next_line.c) - Slightly modified version of [get_next_line](https://github.com/flmarsou/get_next_line).
+- [x] [`init_map`](https://github.com/flmarsou/so_long/blob/main/src/map/init_map.c) - Initializes the struct, also allocates and assigns the map file as an array.
+- [x] [`free_map`](https://github.com/flmarsou/so_long/blob/main/src/map/free_map.c) - Frees the map.
 
+## 2. Parsing
+- [x] [`is_valid_char`](https://github.com/flmarsou/so_long/blob/main/src/parser/is_valid_char.c) - Checks if the map file contains only correct characters (1, 0, P, C, E).
+- [x] [`is_valid_count`](https://github.com/flmarsou/so_long/blob/main/src/parser/is_valid_count.c) - Checks and counts if there is one player, collectibles, and one exit.
+- [x] [`is_valid_shape`](https://github.com/flmarsou/so_long/blob/main/src/parser/is_valid_shape.c) - Checks if the map is rectangular and counts its width and height.
+- [x] [`is_valid_close`](https://github.com/flmarsou/so_long/blob/main/src/parser/is_valid_close.c) - Checks if the map is enclosed with '1' characters on all sides.
+- [x] [`is_valid_path`](https://github.com/flmarsou/so_long/blob/main/src/parser/is_valid_path.c) - Checks if the map is possible *(if the player can reach all collectibles and exit)* using the **Flood Fill** algorithm.
+
+## X. Utils
+- [x] [`ft_printf`](https://github.com/flmarsou/so_long/blob/main/src/utils/ft_printf.c) - Slightly modified version of [ft_printf](https://github.com/flmarsou/ft_printf).
+- [x] [`ft_putchar`](https://github.com/flmarsou/so_long/blob/main/src/utils/ft_putchar.c) - Prints a character.
+- [x] [`ft_putstr`](https://github.com/flmarsou/so_long/blob/main/src/utils/ft_putstr.c) - Prints a string.
+- [x] [`ft_puterr`](https://github.com/flmarsou/so_long/blob/main/src/utils/ft_puterr.c) - Prints a string and exit the program.
+- [x] [`ft_putnbr`](https://github.com/flmarsou/so_long/blob/main/src/utils/ft_putnbr.c) - Prints an integer.
+- [x] [`ft_putuni`](https://github.com/flmarsou/so_long/blob/main/src/utils/ft_putuni.c) - Prints an unsigned integer.
+- [x] [`ft_strchr`](https://github.com/flmarsou/so_long/blob/main/src/utils/ft_strchr.c) - Searches for a character in a string.
+- [x] [`ft_strcmp`](https://github.com/flmarsou/so_long/blob/main/src/utils/ft_strcmp.c) - Checks for a difference between two strings.
+- [x] [`ft_strdup`](https://github.com/flmarsou/so_long/blob/main/src/utils/ft_strdup.c) - Duplicates and allocates a string.
+- [x] [`ft_strjoin`](https://github.com/flmarsou/so_long/blob/main/src/utils/ft_strjoin.c) - Concatenates two strings.
+- [x] [`ft_strlen`](https://github.com/flmarsou/so_long/blob/main/src/utils/ft_strlen.c) - Returns the length of a string.
