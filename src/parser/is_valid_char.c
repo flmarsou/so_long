@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 13:34:59 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/07/30 15:42:40 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/08/05 14:15:10 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,22 @@ static void	print_error(char c, unsigned int x, unsigned int y)
 
 t_bool	is_valid_char(t_game *game)
 {
-	unsigned int	x;
 	unsigned int	y;
+	unsigned int	x;
 	char			c;
 
-	x = 0;
-	while (game->map[x])
+	y = 0;
+	while (game->map[y])
 	{
-		y = 0;
-		while (game->map[x][y])
+		x = 0;
+		while (game->map[y][x])
 		{
-			c = game->map[x][y];
+			c = game->map[y][x];
 			if (c != '1' && c != '0' && c != 'C' && c != 'P' && c != 'E')
 				return (print_error(c, x, y), false);
-			y++;
+			x++;
 		}
-		x++;
+		y++;
 	}
 	return (true);
 }

@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 15:07:43 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/07/30 15:43:20 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/08/05 14:13:27 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,24 +33,24 @@ static void	print_error(t_game *game)
 
 t_bool	is_valid_count(t_game *game)
 {
-	unsigned int	x;
 	unsigned int	y;
+	unsigned int	x;
 
-	x = 0;
-	while (game->map[x])
+	y = 0;
+	while (game->map[y])
 	{
-		y = 0;
-		while (game->map[x][y])
+		x = 0;
+		while (game->map[y][x])
 		{
-			if (game->map[x][y] == 'C')
+			if (game->map[y][x] == 'C')
 				game->count.collectible++;
-			if (game->map[x][y] == 'P')
+			if (game->map[y][x] == 'P')
 				game->count.player++;
-			if (game->map[x][y] == 'E')
+			if (game->map[y][x] == 'E')
 				game->count.exit++;
-			y++;
+			x++;
 		}
-		x++;
+		y++;
 	}
 	if (game->count.player != 1 || game->count.exit != 1
 		|| game->count.collectible < 1)
