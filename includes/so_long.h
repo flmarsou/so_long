@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 09:45:09 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/08/02 12:15:27 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/08/05 16:11:36 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,11 @@
 # include <stdarg.h>	// Variadic Functions
 # include "minilibx-linux/mlx.h"	// MiniLibX
 
-# define TILES	64
+# define TILES	48
 
 // Sprites
-# define SPRITE_PE		"./assets/sprites/player_east.xpm"
-# define SPRITE_PN		"./assets/sprites/player_north.xpm"
-# define SPRITE_PS		"./assets/sprites/player_south.xpm"
-# define SPRITE_PW		"./assets/sprites/player_west.xpm"
-
-# define SPRITE_WALL	"./assets.sprites/wall.xpm"
-
-# define SPRITE_GROUND	"./assets.sprites/ground.xpm"
+# define SPRITE_WALL	"./assets/sprites/wall.xpm"
+# define SPRITE_GROUND	"./assets/sprites/ground.xpm"
 
 // Boolean
 typedef enum e_bool
@@ -123,5 +117,8 @@ t_bool		is_valid_path(t_game *game);
 //===============================//
 
 void		init_display(t_game *game);
+
+void		init_wall(t_game *game, int width, int height);
+void		init_ground(t_game *game, int width, int height);
 
 #endif
