@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 12:07:25 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/08/02 11:18:53 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/08/05 08:38:13 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,5 @@ int	main(int argc, const char **argv)
 	init_map(argv, game);
 	init_display(game);
 	mlx_loop(game->mlx.mlx);
-	free(game);
 	return (0);
 }
