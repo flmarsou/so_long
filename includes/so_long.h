@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 09:45:09 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/08/05 16:11:36 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/08/06 16:00:05 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,19 @@
 # include <stdio.h>		// perror
 # include <string.h>	// strerror
 # include <stdarg.h>	// Variadic Functions
-# include "minilibx-linux/mlx.h"	// MiniLibX
-
-# define TILES	48
+# include ".minilibx-linux/mlx.h"	// MiniLibX
 
 // Sprites
-# define SPRITE_WALL	"./assets/sprites/wall.xpm"
-# define SPRITE_GROUND	"./assets/sprites/ground.xpm"
+# define TILES	48
+
+# define UPPER_WALL			"./assets/sprites/upper_wall.xpm"
+# define LOWER_WALL			"./assets/sprites/lower_wall.xpm"
+# define UPPER_LC_WALL		"./assets/sprites/upper_left_corner_wall.xpm"
+# define UPPER_RC_WALL		"./assets/sprites/upper_right_corner_wall.xpm"
+# define LOWER_LC_WALL		"./assets/sprites/lower_left_corner_wall.xpm"
+# define LOWER_RC_WALL		"./assets/sprites/lower_right_corner_wall.xpm"
+# define LEFT_WALL			"./assets/sprites/left_wall.xpm"
+# define RIGHT_WALL			"./assets/sprites/right_wall.xpm"
 
 // Boolean
 typedef enum e_bool
@@ -49,12 +55,19 @@ struct s_pos
 	unsigned int	y;
 };
 
+// MiniLibX
 struct s_mlx
 {
 	void			*mlx;
 	void			*win;
-	void			*xpm_wall;
-	void			*xpm_ground;
+	void			*xpm_upper_wall;
+	void			*xpm_lower_wall;
+	void			*xpm_upper_rc_wall;
+	void			*xpm_upper_lc_wall;
+	void			*xpm_lower_rc_wall;
+	void			*xpm_lower_lc_wall;
+	void			*xpm_left_wall;
+	void			*xpm_right_wall;
 };
 
 // Main
@@ -113,12 +126,13 @@ t_bool		is_valid_close(t_game *game);
 t_bool		is_valid_path(t_game *game);
 
 //===============================//
-//              MLX              //
+//            Display            //
 //===============================//
 
 void		init_display(t_game *game);
 
 void		init_wall(t_game *game, int width, int height);
-void		init_ground(t_game *game, int width, int height);
+
+void		draw_walls(t_game *game);
 
 #endif
