@@ -6,7 +6,7 @@
 #    By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/17 12:59:58 by flmarsou          #+#    #+#              #
-#    Updated: 2024/08/02 11:17:38 by flmarsou         ###   ########.fr        #
+#    Updated: 2024/08/06 15:59:59 by flmarsou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,12 +40,13 @@ SRC_PARSER	=	./src/parser/is_valid_char.c \
 
 SRC_DISPLAY	=	./src/display/init_display.c \
 				./src/display/init_sprites.c \
+				./src/display/draw_walls.c \
 
 SOURCES		=	${SRC} ${SRC_UTILS} ${SRC_MAP} ${SRC_PARSER} ${SRC_DISPLAY}
 OBJECTS		=	${SOURCES:%.c=obj/%.o}
 
 # Libraries
-MINILIBX	=	./includes/minilibx-linux
+MINILIBX	=	./includes/.minilibx-linux
 
 # Variables
 CC			=	cc
