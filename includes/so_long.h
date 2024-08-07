@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 09:45:09 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/08/06 16:00:05 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/08/07 21:01:18 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,20 @@
 # include <unistd.h>	// write, close, read
 # include <fcntl.h>		// open
 # include <stdlib.h>	// malloc, free, exit
-# include <stdio.h>		// perror
-# include <string.h>	// strerror
 # include <stdarg.h>	// Variadic Functions
-# include ".minilibx-linux/mlx.h"	// MiniLibX
+# include ".mlx/mlx.h"	// MiniLibX
 
 // Sprites
-# define TILES	48
+# define TILES					48
 
-# define UPPER_WALL			"./assets/sprites/upper_wall.xpm"
-# define LOWER_WALL			"./assets/sprites/lower_wall.xpm"
-# define UPPER_LC_WALL		"./assets/sprites/upper_left_corner_wall.xpm"
-# define UPPER_RC_WALL		"./assets/sprites/upper_right_corner_wall.xpm"
-# define LOWER_LC_WALL		"./assets/sprites/lower_left_corner_wall.xpm"
-# define LOWER_RC_WALL		"./assets/sprites/lower_right_corner_wall.xpm"
-# define LEFT_WALL			"./assets/sprites/left_wall.xpm"
-# define RIGHT_WALL			"./assets/sprites/right_wall.xpm"
+# define WALL_UP				"./assets/sprites/walls/up.xpm"
+# define WALL_DOWN				"./assets/sprites/walls/down.xpm"
+# define WALL_LEFT				"./assets/sprites/walls/left.xpm"
+# define WALL_RIGHT				"./assets/sprites/walls/right.xpm"
+# define WALL_UP_LEFT_CORNER	"./assets/sprites/walls/up_left_corner.xpm"
+# define WALL_UP_RIGHT_CORNER	"./assets/sprites/walls/up_right_corner.xpm"
+# define WALL_DOWN_LEFT_CORNER	"./assets/sprites/walls/down_left_corner.xpm"
+# define WALL_DOWN_RIGHT_CORNER	"./assets/sprites/walls/down_right_corner.xpm"
 
 // Boolean
 typedef enum e_bool
@@ -55,22 +53,28 @@ struct s_pos
 	unsigned int	y;
 };
 
+// Wall Sprites
+struct s_wall
+{
+	void			*up;
+	void			*down;
+	void			*right;
+	void			*left;
+	void			*up_left_corner;
+	void			*up_right_corner;
+	void			*down_left_corner;
+	void			*down_right_corner;
+};
+
 // MiniLibX
 struct s_mlx
 {
 	void			*mlx;
 	void			*win;
-	void			*xpm_upper_wall;
-	void			*xpm_lower_wall;
-	void			*xpm_upper_rc_wall;
-	void			*xpm_upper_lc_wall;
-	void			*xpm_lower_rc_wall;
-	void			*xpm_lower_lc_wall;
-	void			*xpm_left_wall;
-	void			*xpm_right_wall;
+	struct s_wall	wall;
 };
 
-// Main
+// Main Struct
 typedef struct s_game
 {
 	struct s_count	count;
