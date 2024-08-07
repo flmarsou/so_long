@@ -6,7 +6,7 @@
 #    By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/17 12:59:58 by flmarsou          #+#    #+#              #
-#    Updated: 2024/08/06 15:59:59 by flmarsou         ###   ########.fr        #
+#    Updated: 2024/08/06 17:13:50 by flmarsou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,7 @@ SOURCES		=	${SRC} ${SRC_UTILS} ${SRC_MAP} ${SRC_PARSER} ${SRC_DISPLAY}
 OBJECTS		=	${SOURCES:%.c=obj/%.o}
 
 # Libraries
-MINILIBX	=	./includes/.minilibx-linux
+MINILIBX	=	./includes/.mlx
 
 # Variables
 CC			=	cc
