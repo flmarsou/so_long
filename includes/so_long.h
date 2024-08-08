@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 09:45:09 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/08/07 21:01:18 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/08/08 15:11:42 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,10 @@
 # define WALL_UP_RIGHT_CORNER	"./assets/sprites/walls/up_right_corner.xpm"
 # define WALL_DOWN_LEFT_CORNER	"./assets/sprites/walls/down_left_corner.xpm"
 # define WALL_DOWN_RIGHT_CORNER	"./assets/sprites/walls/down_right_corner.xpm"
+# define WALL_VERTICAL			"./assets/sprites/walls/vertical.xpm"
+// # define WALL_UP_VERTICAL		"./assets/sprites/walls/up_vertical.xpm"
+// # define WALL_DOWN_VERTICAL		"./assets/sprites/walls/down_vertical.xpm"
+# define WALL_BACKKGROUND		"./assets/sprites/walls/background.xpm"
 
 // Boolean
 typedef enum e_bool
@@ -64,6 +68,10 @@ struct s_wall
 	void			*up_right_corner;
 	void			*down_left_corner;
 	void			*down_right_corner;
+	void			*vertical;
+	// void			*up_vertical;
+	// void			*down_vertical;
+	void			*background;
 };
 
 // MiniLibX
