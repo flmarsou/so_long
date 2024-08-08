@@ -39,6 +39,8 @@ It must be <ins>**possible to reach all collectible(s)**</ins> and <ins>**the ex
 
 # 📑 List of Functions
 
+- [x] [`main`](https://github.com/flmarsou/push_swap/blob/main/src/main.c) - Checks the arguments, calls, and sends info to the [map](https://github.com/flmarsou/so_long/tree/main/src/map), [parser](https://github.com/flmarsou/so_long/tree/main/src/parser), and [display](https://github.com/flmarsou/so_long/tree/main/src/display).
+
 ## 1. Map
 - [x] [`get_next_line`](https://github.com/flmarsou/so_long/blob/main/src/map/get_next_line.c) - Slightly modified version of [get_next_line](https://github.com/flmarsou/get_next_line).
 - [x] [`init_map`](https://github.com/flmarsou/so_long/blob/main/src/map/init_map.c) - Initializes the struct, also allocates and assigns the map file as an array.
@@ -50,6 +52,11 @@ It must be <ins>**possible to reach all collectible(s)**</ins> and <ins>**the ex
 - [x] [`is_valid_shape`](https://github.com/flmarsou/so_long/blob/main/src/parser/is_valid_shape.c) - Checks if the map is rectangular and counts its width and height.
 - [x] [`is_valid_close`](https://github.com/flmarsou/so_long/blob/main/src/parser/is_valid_close.c) - Checks if the map is enclosed with '1' characters on all sides.
 - [x] [`is_valid_path`](https://github.com/flmarsou/so_long/blob/main/src/parser/is_valid_path.c) - Checks if the map is possible *(if the player can reach all collectibles and exit)* using the **Flood Fill** algorithm.
+
+## 3. Display
+- [x] [`init_display`](https://github.com/flmarsou/so_long/blob/main/src/display/init_display.c) - Initializes the **MiniLibX** and run the following functions.
+- [x] [`init_sprites`](https://github.com/flmarsou/so_long/blob/main/src/display/init_sprites.c) - Initializes the sprites.
+- [x] [`draw_walls`](https://github.com/flmarsou/so_long/blob/main/src/display/draw_walls.c) - Draws different wall sprites with a little algorithm that checks their positions relative to one another.
 
 ## X. Utils
 - [x] [`ft_printf`](https://github.com/flmarsou/so_long/blob/main/src/utils/ft_printf.c) - Slightly modified version of [ft_printf](https://github.com/flmarsou/ft_printf).
