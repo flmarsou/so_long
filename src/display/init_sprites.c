@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 11:14:23 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/08/07 21:04:51 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/08/08 15:08:12 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,12 @@ void	init_wall(t_game *game, int width, int height)
 			WALL_DOWN_LEFT_CORNER, &width, &height);
 	game->mlx.wall.down_right_corner = mlx_xpm_file_to_image(game->mlx.mlx,
 			WALL_DOWN_RIGHT_CORNER, &width, &height);
-	if (!(game->mlx.wall.up && game->mlx.wall.down && game->mlx.wall.left
-			&& game->mlx.wall.right && game->mlx.wall.up_left_corner
-			&& game->mlx.wall.up_right_corner && game->mlx.wall.down_left_corner
-			&& game->mlx.wall.down_right_corner))
-		ft_puterr("Couldn't initialize wall textures!");
+	game->mlx.wall.vertical = mlx_xpm_file_to_image(game->mlx.mlx,
+			WALL_VERTICAL, &width, &height);
+	// game->mlx.wall.up_vertical = mlx_xpm_file_to_image(game->mlx.mlx,
+	// 		WALL_UP_VERTICAL, &width, &height);
+	// game->mlx.wall.down_vertical = mlx_xpm_file_to_image(game->mlx.mlx,
+	// 		WALL_DOWN_VERTICAL, &width, &height);
+	game->mlx.wall.background = mlx_xpm_file_to_image(game->mlx.mlx,
+			WALL_BACKKGROUND, &width, &height);
 }
