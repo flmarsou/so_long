@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 09:45:09 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/08/08 15:11:42 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/08/09 08:45:49 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,5 +146,6 @@ void		init_display(t_game *game);
 void		init_wall(t_game *game, int width, int height);
 
 void		draw_walls(t_game *game);
+int			draw_outer_walls(t_game *game, int wall, unsigned int x, unsigned int y);
 
 #endif

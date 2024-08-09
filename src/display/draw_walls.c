@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 09:50:42 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/08/08 15:33:28 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/08/09 08:48:30 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,9 @@ static void	draw_wall2(t_game *game, int wall, unsigned int x, unsigned int y)
 	else if (wall == 11)
 		mlx_put_image_to_window(game->mlx.mlx, game->mlx.win,
 			game->mlx.wall.background, x, y);
+	else
+		mlx_put_image_to_window(game->mlx.mlx, game->mlx.win,
+			game->mlx.wall.vertical, x, y);
 }
 
 static void	draw_wall1(t_game *game, int wall, unsigned int x, unsigned int y)
@@ -133,7 +136,7 @@ static int	which_wall2(t_game *game, unsigned int x, unsigned int y)
 		return (10);
 	if (top_wall && !bottom_wall && !left_wall && !right_wall)
 		return (11);
-	return (0);
+	return (draw_outer_walls(game, 0, x, y));
 }
 
 void	draw_walls(t_game *game)
