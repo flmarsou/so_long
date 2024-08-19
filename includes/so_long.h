@@ -67,7 +67,7 @@ typedef struct s_game
 	struct s_count	count;
 	struct s_pos	pos;
 	struct s_mlx	mlx;
-	const char		**map;
+	char			**map;
 	unsigned int	height;
 	unsigned int	width;
 	char			**floodfill;
