@@ -43,8 +43,8 @@ It must be <ins>**possible to reach all collectible(s)**</ins> and <ins>**the ex
 
 ## 1. Map
 - [x] [`get_next_line`](https://github.com/flmarsou/so_long/blob/main/src/map/get_next_line.c) - Slightly modified version of [get_next_line](https://github.com/flmarsou/get_next_line).
-- [x] [`init_map`](https://github.com/flmarsou/so_long/blob/main/src/map/init_map.c) - Initializes the struct, also allocates and assigns the map file as an array.
-- [x] [`free_map`](https://github.com/flmarsou/so_long/blob/main/src/map/free_map.c) - Frees the map.
+- [x] [`init_map`](https://github.com/flmarsou/so_long/blob/main/src/map/init_map.c) - Initializes the struct, allocates, and assigns the map file as an array of strings.
+- [x] [`free_map`](https://github.com/flmarsou/so_long/blob/main/src/map/free_map.c)
 
 ## 2. Parsing
 - [x] [`is_valid_char`](https://github.com/flmarsou/so_long/blob/main/src/parser/is_valid_char.c) - Checks if the map file contains only correct characters (1, 0, P, C, E).
@@ -54,6 +54,17 @@ It must be <ins>**possible to reach all collectible(s)**</ins> and <ins>**the ex
 - [x] [`is_valid_path`](https://github.com/flmarsou/so_long/blob/main/src/parser/is_valid_path.c) - Checks if the map is possible *(if the player can reach all collectibles and exit)* using the **Flood Fill** algorithm.
 
 ## 3. Display
+- [x] [`init_display`](https://github.com/flmarsou/so_long/blob/main/src/display/init_display.c) - Acts as a main for the MLX's display part.
+- [x] [`init_sprites`](https://github.com/flmarsou/so_long/blob/main/src/display/init_sprites.c) - Calls every functions to initialize sprites.
+#### Walls:
+- [x] [`draw_walls`](https://github.com/flmarsou/so_long/blob/main/src/display/walls/draw_walls.c) - Draws wall tiles according to their positions and neighboring tiles.
+- [x] [`init_wall_sprites`](https://github.com/flmarsou/so_long/blob/main/src/display/walls/init_wall_sprites.c) - Initializes wall sprites.
+- [x] [`which_inner_wall`](https://github.com/flmarsou/so_long/blob/main/src/display/walls/which_inner_wall.c) - Finds the wall sprite by checking its adjacent walls.
+- [x] [`which_outer_wall`](https://github.com/flmarsou/so_long/blob/main/src/display/walls/which_outer_wall.c) - Finds the wall sprite by checking its diagonal walls.
+#### Floors:
+- [x] [`draw_floors`](https://github.com/flmarsou/so_long/blob/main/src/display/floors/draw_floors.c) - Draws floor tiles according to their positions.
+- [x] [`init_floor_sprites`](https://github.com/flmarsou/so_long/blob/main/src/display/floors/init_floor_sprites.c) - Initializes floor sprites.
+- [x] [`random_floor`](https://github.com/flmarsou/so_long/blob/main/src/display/floors/random_floor.c) - Returns a pseudo random seed for randomizing floor tiles.
 
 ## X. Utils
 - [x] [`ft_printf`](https://github.com/flmarsou/so_long/blob/main/src/utils/ft_printf.c) - Slightly modified version of [ft_printf](https://github.com/flmarsou/ft_printf).
