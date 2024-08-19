@@ -6,13 +6,13 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 12:07:25 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/08/05 08:38:13 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/08/13 18:32:34 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-static void	main_args(int argc, const char **argv)
+static void	check_args(int argc, const char **argv)
 {
 	int	fd;
 
@@ -35,12 +35,14 @@ int	main(int argc, const char **argv)
 {
 	t_game	*game;
 
+	check_args(argc, argv);
 	game = (t_game *)malloc(sizeof(t_game));
 	if (!game)
 		return (ft_puterr("Allocation Failed! [./src/map/init_map]"), 1);
-	main_args(argc, argv);
 	init_map(argv, game);
 	init_display(game);
 	mlx_loop(game->mlx.mlx);
+	free_map(game);
+	free(game);
 	return (0);
 }
