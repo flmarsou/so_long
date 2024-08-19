@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 09:45:09 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/08/19 12:12:59 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/08/19 13:23:21 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>	// write, close, read
 # include <fcntl.h>		// open
 # include <stdlib.h>	// malloc, free, exit
+# include <math.h>		// Math Functions
 # include <stdarg.h>	// Variadic Functions
 # include ".mlx/mlx.h"	// MiniLibX
 
@@ -126,5 +127,8 @@ void		init_wall_sprites(t_game *game, int width, int height);
 int			which_inner_wall(t_game *game, unsigned int x, unsigned int y);
 int			which_outer_wall(t_game *game, unsigned int x, unsigned int y);
 void		draw_walls(t_game *game);
+
+void		draw_floors(t_game *game);
+int			random_floor(t_game *game);
 
 #endif

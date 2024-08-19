@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 10:55:37 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/08/19 12:14:52 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/08/19 12:49:25 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,5 @@ void	init_display(t_game *game)
 		ft_puterr("Failed to create window!");
 	init_sprites(game, TILES, TILES);
 	draw_walls(game);
+	draw_floors(game);
 }
