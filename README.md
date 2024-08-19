@@ -54,9 +54,6 @@ It must be <ins>**possible to reach all collectible(s)**</ins> and <ins>**the ex
 - [x] [`is_valid_path`](https://github.com/flmarsou/so_long/blob/main/src/parser/is_valid_path.c) - Checks if the map is possible *(if the player can reach all collectibles and exit)* using the **Flood Fill** algorithm.
 
 ## 3. Display
-- [x] [`init_display`](https://github.com/flmarsou/so_long/blob/main/src/display/init_display.c) - Initializes the **MiniLibX** and run the following functions.
-- [x] [`init_sprites`](https://github.com/flmarsou/so_long/blob/main/src/display/init_sprites.c) - Initializes the sprites.
-- [x] [`draw_walls`](https://github.com/flmarsou/so_long/blob/main/src/display/draw_walls.c) - Draws different wall sprites with a little algorithm that checks their positions relative to one another.
 
 ## X. Utils
 - [x] [`ft_printf`](https://github.com/flmarsou/so_long/blob/main/src/utils/ft_printf.c) - Slightly modified version of [ft_printf](https://github.com/flmarsou/ft_printf).
