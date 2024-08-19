@@ -17,7 +17,7 @@ Maps can be found in the [`maps`](https://github.com/flmarsou/so_long/tree/main/
 
 Only the <ins>**specified characters**</ins> (e.g., walls, floors, etc.). \
 Maps must be <ins>**rectangular**</ins> and <ins>**enclosed**</ins> (player cannot move outside the map area). \
-Maps must contain exactly <ins>**one player**</ins> and <ins>**one exit**</ins>. \
+Maps must contain exactly <ins>**one player**</ins>, <ins>**one exit**</ins>, and at least <ins>**one collectible**</ins>. \
 It must be <ins>**possible to reach all collectible(s)**</ins> and <ins>**the exit**</ins> from the starting position.
 
 # 🧼 Cleaning
