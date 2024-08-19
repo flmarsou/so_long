@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 09:45:09 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/08/09 08:45:49 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/08/19 12:12:59 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,6 @@
 // Sprites
 # define TILES					48
 
-# define WALL_UP				"./assets/sprites/walls/up.xpm"
-# define WALL_DOWN				"./assets/sprites/walls/down.xpm"
-# define WALL_LEFT				"./assets/sprites/walls/left.xpm"
-# define WALL_RIGHT				"./assets/sprites/walls/right.xpm"
-# define WALL_UP_LEFT_CORNER	"./assets/sprites/walls/up_left_corner.xpm"
-# define WALL_UP_RIGHT_CORNER	"./assets/sprites/walls/up_right_corner.xpm"
-# define WALL_DOWN_LEFT_CORNER	"./assets/sprites/walls/down_left_corner.xpm"
-# define WALL_DOWN_RIGHT_CORNER	"./assets/sprites/walls/down_right_corner.xpm"
-# define WALL_VERTICAL			"./assets/sprites/walls/vertical.xpm"
-// # define WALL_UP_VERTICAL		"./assets/sprites/walls/up_vertical.xpm"
-// # define WALL_DOWN_VERTICAL		"./assets/sprites/walls/down_vertical.xpm"
 # define WALL_BACKKGROUND		"./assets/sprites/walls/background.xpm"
 
 // Boolean
@@ -60,17 +49,6 @@ struct s_pos
 // Wall Sprites
 struct s_wall
 {
-	void			*up;
-	void			*down;
-	void			*right;
-	void			*left;
-	void			*up_left_corner;
-	void			*up_right_corner;
-	void			*down_left_corner;
-	void			*down_right_corner;
-	void			*vertical;
-	// void			*up_vertical;
-	// void			*down_vertical;
 	void			*background;
 };
 
@@ -142,10 +120,11 @@ t_bool		is_valid_path(t_game *game);
 //===============================//
 
 void		init_display(t_game *game);
+void		init_sprites(t_game *game, int width, int height);
 
-void		init_wall(t_game *game, int width, int height);
-
+void		init_wall_sprites(t_game *game, int width, int height);
+int			which_inner_wall(t_game *game, unsigned int x, unsigned int y);
+int			which_outer_wall(t_game *game, unsigned int x, unsigned int y);
 void		draw_walls(t_game *game);
-int			draw_outer_walls(t_game *game, int wall, unsigned int x, unsigned int y);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/17 12:59:58 by flmarsou          #+#    #+#              #
-#    Updated: 2024/08/09 08:45:04 by flmarsou         ###   ########.fr        #
+#    Updated: 2024/08/19 12:13:55 by flmarsou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,8 +40,10 @@ SRC_PARSER	=	./src/parser/is_valid_char.c \
 
 SRC_DISPLAY	=	./src/display/init_display.c \
 				./src/display/init_sprites.c \
-				./src/display/draw_walls.c \
-				./src/display/draw_outer_walls.c \
+				./src/display/walls/init_wall_sprites.c \
+				./src/display/walls/draw_walls.c \
+				./src/display/walls/which_inner_wall.c \
+				./src/display/walls/which_outer_wall.c \
 
 SOURCES		=	${SRC} ${SRC_UTILS} ${SRC_MAP} ${SRC_PARSER} ${SRC_DISPLAY}
 OBJECTS		=	${SOURCES:%.c=obj/%.o}
