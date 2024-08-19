@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 20:24:13 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/08/02 09:58:27 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/08/13 19:04:21 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,49 +33,42 @@ static int	counter(int fd)
 	return (count);
 }
 
-static const char	**allocate_map(const char **argv)
+static void	allocate_map(const char **argv, t_game *game)
 {
-	const char	**map;
 	char		*line;
 	int			i;
 	int			fd;
 
 	fd = open(argv[1], O_RDONLY);
-	map = (const char **)malloc(sizeof(const char *) * (counter(fd) + 1));
-	if (!map)
-	{
+	game->map = (char **)malloc(sizeof(char *) * (counter(fd) + 1));
+	if (!game->map)
 		ft_puterr("Allocation Failed! [./src/map/init_map]");
-		close(fd);
-	}
 	fd = open(argv[1], O_RDONLY);
 	line = get_next_line(fd);
 	i = 0;
 	while (line)
 	{
-		map[i] = line;
+		game->map[i] = line;
 		i++;
 		line = get_next_line(fd);
 	}
-	map[i] = NULL;
+	game->map[i] = NULL;
 	close(fd);
-	return (map);
 }
 
 void	init_map(const char **argv, t_game *game)
 {
-	game->count.collectible = 0;
-	game->count.player = 0;
-	game->count.exit = 0;
-	game->pos.x = 0;
-	game->pos.y = 0;
+	game->map = 0;
 	game->height = 0;
 	game->width = 0;
-	game->map = allocate_map(argv);
-	if (!is_valid_char(game) || !is_valid_count(game)
-		|| !is_valid_shape(game) || !is_valid_close(game)
-		|| !is_valid_path(game))
+	game->count.player = 0;
+	game->count.collectible = 0;
+	game->count.exit = 0;
+	allocate_map(argv, game);
+	if (!is_valid_count(game) || !is_valid_shape(game))
 	{
 		free_map(game);
-		exit (1);
+		free(game);
+		exit(1);
 	}
 }
