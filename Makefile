@@ -6,7 +6,7 @@
 #    By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/17 12:59:58 by flmarsou          #+#    #+#              #
-#    Updated: 2024/08/20 13:18:25 by flmarsou         ###   ########.fr        #
+#    Updated: 2024/08/20 15:00:23 by flmarsou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,10 @@ SRC_DISPLAY	=	./src/display/init_display.c \
 				./src/display/floors/random_floor.c \
 				./src/display/floors/init_floor_sprites.c \
 
-SOURCES		=	${SRC} ${SRC_UTILS} ${SRC_MAP} ${SRC_PARSER} ${SRC_DISPLAY}
+SRC_GAME	=	./src/game/handle_keypress.c \
+				./src/game/close_window.c \
+
+SOURCES		=	${SRC} ${SRC_UTILS} ${SRC_MAP} ${SRC_PARSER} ${SRC_DISPLAY} ${SRC_GAME}
 OBJECTS		=	${SOURCES:%.c=obj/%.o}
 
 # Libraries
