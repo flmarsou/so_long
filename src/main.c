@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 12:07:25 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/08/13 18:32:34 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/08/20 14:58:02 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ int	main(int argc, const char **argv)
 		return (ft_puterr("Allocation Failed! [./src/map/init_map]"), 1);
 	init_map(argv, game);
 	init_display(game);
+	mlx_hook(game->mlx.win, 2, (1L << 0), handle_keypress, game);
+	mlx_hook(game->mlx.win, 17, 0L, close_window, game);
 	mlx_loop(game->mlx.mlx);
-	free_map(game);
-	free(game);
 	return (0);
 }
