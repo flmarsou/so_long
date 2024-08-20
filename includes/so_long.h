@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 09:45:09 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/08/19 13:23:21 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/08/20 13:20:08 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@
 # define TILES					48
 
 # define WALL_BACKKGROUND		"./assets/sprites/walls/background.xpm"
+
+# define FLOOR1					"./assets/sprites/floors/floor1.xpm"
 
 // Boolean
 typedef enum e_bool
@@ -53,12 +55,19 @@ struct s_wall
 	void			*background;
 };
 
+// Floor Sprites
+struct s_floor
+{
+	void			*floor1;
+};
+
 // MiniLibX
 struct s_mlx
 {
 	void			*mlx;
 	void			*win;
 	struct s_wall	wall;
+	struct s_floor	floor;
 };
 
 // Main Struct
@@ -124,10 +133,11 @@ void		init_display(t_game *game);
 void		init_sprites(t_game *game, int width, int height);
 
 void		init_wall_sprites(t_game *game, int width, int height);
+void		draw_walls(t_game *game);
 int			which_inner_wall(t_game *game, unsigned int x, unsigned int y);
 int			which_outer_wall(t_game *game, unsigned int x, unsigned int y);
-void		draw_walls(t_game *game);
 
+void		init_floor_sprites(t_game *game, int width, int height);
 void		draw_floors(t_game *game);
 int			random_floor(t_game *game);
 
