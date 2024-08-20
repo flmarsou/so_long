@@ -6,11 +6,18 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 12:36:57 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/08/19 13:37:31 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/08/20 13:17:48 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/so_long.h"
+
+static void	draw_floor(t_game *game, int floor, unsigned int x, unsigned int y)
+{
+	if (floor == 0)
+		mlx_put_image_to_window(game->mlx.mlx, game->mlx.win,
+			game->mlx.floor.floor1, x, y);
+}
 
 void	draw_floors(t_game *game)
 {
@@ -31,7 +38,7 @@ void	draw_floors(t_game *game)
 			if (game->map[y][x] == '0')
 			{
 				floor = random_floor(game);
-				ft_printf("Floor Value: %d\n", floor);
+				draw_floor(game, floor, x_offset, y_offset);
 			}
 			x_offset += TILES;
 		}
