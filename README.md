@@ -4,6 +4,11 @@ WIP
 
 # ⚒️ Compilation
 
+Clone command:
+```
+git clone https://github.com/flmarsou/so_long.git && cd so_long/includes/ && git clone https://github.com/42Paris/minilibx-linux.git .mlx && cd ..
+```
+
 1. Run `make` to compile the program.
 2. Run `make re` to recompile everything.
 3. Run `./so_long <map_path>` to execute the program.
