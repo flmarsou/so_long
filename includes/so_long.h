@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 09:45:09 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/08/20 13:20:08 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/08/20 15:00:04 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,18 @@
 # include <math.h>		// Math Functions
 # include <stdarg.h>	// Variadic Functions
 # include ".mlx/mlx.h"	// MiniLibX
+
+// Hooks
+# define W						119
+# define ARROW_UP				65362
+# define A						97
+# define ARROW_LEFT				65361
+# define S						115
+# define ARROW_DOWN				65364
+# define D						100
+# define ARROW_RIGHT			65363
+# define ESC					65307
+# define R						114
 
 // Sprites
 # define TILES					48
@@ -140,5 +152,12 @@ int			which_outer_wall(t_game *game, unsigned int x, unsigned int y);
 void		init_floor_sprites(t_game *game, int width, int height);
 void		draw_floors(t_game *game);
 int			random_floor(t_game *game);
+
+//===============================//
+//              Game             //
+//===============================//
+
+int			handle_keypress(int key, t_game *game);
+int			close_window(t_game *game);
 
 #endif
