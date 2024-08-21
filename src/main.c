@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 12:07:25 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/08/20 14:58:02 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/08/21 15:29:17 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,16 @@ static void	check_args(int argc, const char **argv)
 	close(fd);
 }
 
+static void	init_struct(t_game *game)
+{
+	game->map = 0;
+	game->height = 0;
+	game->width = 0;
+	game->count.player = 0;
+	game->count.collectible = 0;
+	game->count.exit = 0;
+}
+
 int	main(int argc, const char **argv)
 {
 	t_game	*game;
@@ -39,8 +49,11 @@ int	main(int argc, const char **argv)
 	game = (t_game *)malloc(sizeof(t_game));
 	if (!game)
 		return (ft_puterr("Allocation Failed! [./src/map/init_map]"), 1);
+	init_struct(game);
 	init_map(argv, game);
 	init_display(game);
+	init_sprites(game, TILES, TILES);
+	
 	mlx_hook(game->mlx.win, 2, (1L << 0), handle_keypress, game);
 	mlx_hook(game->mlx.win, 17, 0L, close_window, game);
 	mlx_loop(game->mlx.mlx);
