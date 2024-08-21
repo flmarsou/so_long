@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 16:38:59 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/07/30 16:46:53 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/08/21 15:36:32 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,8 @@ static t_bool	floodfill(t_game *game)
 		{
 			if (game->floodfill[i][j] == 'P')
 			{
-				game->pos.x = i;
-				game->pos.y = j;
+				game->pos.x = j;
+				game->pos.y = i;
 				return (fill(game, game->pos.x, game->pos.y));
 			}
 			j++;
@@ -105,5 +105,9 @@ t_bool	is_valid_path(t_game *game)
 	floodfill_free(game);
 	if (!valid)
 		ft_putstr("\e[1;31m[!] - Fail: \e[1;97mMap is not possible!\n\e[0m");
+	else
+		ft_putstr("\e[1;32m[✓] - Success: \e[1;97mis_valid_path\n\e[0m");
+	ft_printf("Player X: %u\n", game->pos.x);
+	ft_printf("Player Y: %u\n", game->pos.y);
 	return (valid);
 }

@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 15:07:43 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/08/05 14:13:27 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/08/21 14:52:46 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,11 @@ static void	print_error(t_game *game)
 		ft_printf("\e[1;35m[!] - Note: \e[1;97mNo exit found!\n\e[0m");
 	else if (game->count.exit > 1)
 		ft_printf("\e[1;35m[!] - Note: \e[1;97mToo many exits found!\n\e[0m");
+}
+
+static void	print_success(void)
+{
+	ft_putstr("\e[1;32m[✓] - Success: \e[1;97mis_valid_count\n\e[0m");
 }
 
 t_bool	is_valid_count(t_game *game)
@@ -55,5 +60,5 @@ t_bool	is_valid_count(t_game *game)
 	if (game->count.player != 1 || game->count.exit != 1
 		|| game->count.collectible < 1)
 		return (print_error(game), false);
-	return (true);
+	return (print_success(), true);
 }
