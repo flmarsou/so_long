@@ -62,14 +62,20 @@ It must be <ins>**possible to reach all collectible(s)**</ins> and <ins>**the ex
 - [x] [`init_display`](https://github.com/flmarsou/so_long/blob/main/src/display/init_display.c) - Acts as a main for the MLX's display part.
 - [x] [`init_sprites`](https://github.com/flmarsou/so_long/blob/main/src/display/init_sprites.c) - Calls every functions to initialize sprites.
 #### Walls:
-- [x] [`draw_walls`](https://github.com/flmarsou/so_long/blob/main/src/display/walls/draw_walls.c) - Draws wall tiles according to their positions and neighboring tiles.
+- [x] [`display_walls`](https://github.com/flmarsou/so_long/blob/main/src/display/walls/display_walls.c) - Draws wall tiles according to their positions and neighboring tiles.
 - [x] [`init_wall_sprites`](https://github.com/flmarsou/so_long/blob/main/src/display/walls/init_wall_sprites.c) - Initializes wall sprites.
 - [x] [`which_inner_wall`](https://github.com/flmarsou/so_long/blob/main/src/display/walls/which_inner_wall.c) - Finds the wall sprite by checking its adjacent walls.
 - [x] [`which_outer_wall`](https://github.com/flmarsou/so_long/blob/main/src/display/walls/which_outer_wall.c) - Finds the wall sprite by checking its diagonal walls.
 #### Floors:
-- [x] [`draw_floors`](https://github.com/flmarsou/so_long/blob/main/src/display/floors/draw_floors.c) - Draws floor tiles according to their positions.
+- [x] [`display_floors`](https://github.com/flmarsou/so_long/blob/main/src/display/floors/display_floors.c) - Draws floor tiles according to their positions.
 - [x] [`init_floor_sprites`](https://github.com/flmarsou/so_long/blob/main/src/display/floors/init_floor_sprites.c) - Initializes floor sprites.
 - [x] [`random_floor`](https://github.com/flmarsou/so_long/blob/main/src/display/floors/random_floor.c) - Returns a pseudo random seed for randomizing floor tiles.
+#### Players:
+- [x] [`init_player_sprites`](https://github.com/flmarsou/so_long/blob/main/src/display/players/init_player_sprites.c) - Initializes player sprites.
+
+## 4. Game
+- [x] [`handle_keypress`](https://github.com/flmarsou/so_long/blob/main/src/game/handle_keypress.c) - Runs every time a key is pressed, manages player movements, and redrawing tiles.
+- [x] [`close_window`](https://github.com/flmarsou/so_long/blob/main/src/game/close_window.c) - Frees everything and ends the program.
 
 ## X. Utils
 - [x] [`ft_printf`](https://github.com/flmarsou/so_long/blob/main/src/utils/ft_printf.c) - Slightly modified version of [ft_printf](https://github.com/flmarsou/ft_printf).
