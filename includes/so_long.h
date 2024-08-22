@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 09:45:09 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/08/20 15:00:04 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/08/22 14:50:14 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@
 # define WALL_BACKKGROUND		"./assets/sprites/walls/background.xpm"
 
 # define FLOOR1					"./assets/sprites/floors/floor1.xpm"
+
+# define PLAYER_UP				"./assets/sprites/players/player_up.xpm"
 
 // Boolean
 typedef enum e_bool
@@ -73,6 +75,11 @@ struct s_floor
 	void			*floor1;
 };
 
+struct s_player
+{
+	void			*player_up;
+};
+
 // MiniLibX
 struct s_mlx
 {
@@ -80,6 +87,7 @@ struct s_mlx
 	void			*win;
 	struct s_wall	wall;
 	struct s_floor	floor;
+	struct s_player	player;
 };
 
 // Main Struct
@@ -145,13 +153,16 @@ void		init_display(t_game *game);
 void		init_sprites(t_game *game, int width, int height);
 
 void		init_wall_sprites(t_game *game, int width, int height);
-void		draw_walls(t_game *game);
+void		display_walls(t_game *game);
 int			which_inner_wall(t_game *game, unsigned int x, unsigned int y);
 int			which_outer_wall(t_game *game, unsigned int x, unsigned int y);
 
 void		init_floor_sprites(t_game *game, int width, int height);
-void		draw_floors(t_game *game);
+void		display_floors(t_game *game);
 int			random_floor(t_game *game);
+void		draw_floor(t_game *game, int floor, unsigned int x, unsigned int y);
+
+void		init_player_sprites(t_game *game, int width, int height);
 
 //===============================//
 //              Game             //

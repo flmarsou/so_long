@@ -6,7 +6,7 @@
 #    By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/17 12:59:58 by flmarsou          #+#    #+#              #
-#    Updated: 2024/08/20 15:00:23 by flmarsou         ###   ########.fr        #
+#    Updated: 2024/08/22 14:46:41 by flmarsou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,10 +43,11 @@ SRC_DISPLAY	=	./src/display/init_display.c \
 				./src/display/walls/init_wall_sprites.c \
 				./src/display/walls/which_inner_wall.c \
 				./src/display/walls/which_outer_wall.c \
-				./src/display/walls/draw_walls.c \
-				./src/display/floors/draw_floors.c \
+				./src/display/walls/display_walls.c \
+				./src/display/floors/display_floors.c \
 				./src/display/floors/random_floor.c \
 				./src/display/floors/init_floor_sprites.c \
+				./src/display/players/init_player_sprites.c \
 
 SRC_GAME	=	./src/game/handle_keypress.c \
 				./src/game/close_window.c \
