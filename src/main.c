@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 12:07:25 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/08/21 15:29:17 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/08/22 14:35:06 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,8 @@ int	main(int argc, const char **argv)
 	init_map(argv, game);
 	init_display(game);
 	init_sprites(game, TILES, TILES);
-	
+	display_walls(game);
+	display_floors(game);
 	mlx_hook(game->mlx.win, 2, (1L << 0), handle_keypress, game);
 	mlx_hook(game->mlx.win, 17, 0L, close_window, game);
 	mlx_loop(game->mlx.mlx);
