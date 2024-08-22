@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_walls.c                                       :+:      :+:    :+:   */
+/*   display_walls.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 11:39:53 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/08/19 12:10:23 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/08/22 14:34:16 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	draw_wall1(t_game *game, int wall, unsigned int x, unsigned int y)
 			game->mlx.wall.background, x, y);
 }
 
-void	draw_walls(t_game *game)
+void	display_walls(t_game *game)
 {
 	unsigned int	y;
 	unsigned int	x;

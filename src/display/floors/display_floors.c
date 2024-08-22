@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_floors.c                                      :+:      :+:    :+:   */
+/*   display_floors.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 12:36:57 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/08/20 13:17:48 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/08/22 14:43:22 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/so_long.h"
 
-static void	draw_floor(t_game *game, int floor, unsigned int x, unsigned int y)
+void	draw_floor(t_game *game, int floor, unsigned int x, unsigned int y)
 {
 	if (floor == 0)
 		mlx_put_image_to_window(game->mlx.mlx, game->mlx.win,
 			game->mlx.floor.floor1, x, y);
+	else if (floor == 1)
+		mlx_put_image_to_window(game->mlx.mlx, game->mlx.win,
+			game->mlx.floor.floor1, x, y);
+	else if (floor == 2)
+		mlx_put_image_to_window(game->mlx.mlx, game->mlx.win,
+			game->mlx.floor.floor1, x, y);
+	else
+		mlx_put_image_to_window(game->mlx.mlx, game->mlx.win,
+			game->mlx.floor.floor1, x, y);
 }
 
-void	draw_floors(t_game *game)
+void	display_floors(t_game *game)
 {
 	unsigned int	y;
 	unsigned int	x;
