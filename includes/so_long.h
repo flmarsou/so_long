@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 09:45:09 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/08/22 14:50:14 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/08/23 11:00:11 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -169,6 +169,10 @@ void		init_player_sprites(t_game *game, int width, int height);
 //===============================//
 
 int			handle_keypress(int key, t_game *game);
+
+void		player_move(t_game *game, unsigned int temp_x, unsigned int temp_y);
+void		enemy_move(t_game *game);
+
 int			close_window(t_game *game);
 
 #endif
