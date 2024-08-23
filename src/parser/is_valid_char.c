@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 13:34:59 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/08/21 14:50:25 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/08/23 11:10:39 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ t_bool	is_valid_char(t_game *game)
 		while (game->map[y][x])
 		{
 			c = game->map[y][x];
-			if (c != '1' && c != '0' && c != 'C' && c != 'P' && c != 'E')
+			if (c != '1' && c != '0' && c != 'C' && c != 'P' && c != 'E'
+				&& c != 'H' && c != 'V')
 				return (print_error(c, x, y), false);
 			x++;
 		}
