@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 16:38:59 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/08/21 15:36:32 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/08/23 12:51:31 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,22 +28,23 @@ static void	floodfill_free(t_game *game)
 
 // Checks if the current position is a coin and adds to the counter.
 // Checks if the current position is the exit and adds to the counter.
-// Checks if the current position is a wall OR already visited.
+// Checks if the current position is a wall, exit, or already visited.
 // Recursively calls itself to check all four directions.
 static t_bool	fill(t_game *game, unsigned int x, unsigned int y)
 {
 	static unsigned int	coins = 0;
 	static unsigned int	exit = 0;
 
-	if (game->floodfill[x][y] == 'C')
+	if (game->floodfill[y][x] == 'C')
 		coins++;
-	if (game->floodfill[x][y] == 'E')
+	if (game->floodfill[y][x] == 'E')
 		exit++;
-	if (game->floodfill[x][y] == '1' || game->floodfill[x][y] == 'X')
-		return (false);
 	if (exit && coins == game->count.collectible)
 		return (true);
-	game->floodfill[x][y] = 'X';
+	if (game->floodfill[y][x] == '1' || game->floodfill[y][x] == 'E'
+		|| game->floodfill[y][x] == 'F')
+		return (false);
+	game->floodfill[y][x] = 'F';
 	if (fill(game, x + 1, y) || fill(game, x, y + 1)
 		|| fill(game, x - 1, y) || fill(game, x, y - 1))
 		return (true);
@@ -53,24 +54,24 @@ static t_bool	fill(t_game *game, unsigned int x, unsigned int y)
 // Finds player's position to start the pathfinding.
 static t_bool	floodfill(t_game *game)
 {
-	unsigned int	i;
-	unsigned int	j;
+	unsigned int	y;
+	unsigned int	x;
 
-	i = 0;
-	while (i < game->height)
+	y = 0;
+	while (y < game->height)
 	{
-		j = 0;
-		while (j < game->width)
+		x = 0;
+		while (x < game->width)
 		{
-			if (game->floodfill[i][j] == 'P')
+			if (game->floodfill[y][x] == 'P')
 			{
-				game->pos.x = j;
-				game->pos.y = i;
+				game->pos.x = x;
+				game->pos.y = y;
 				return (fill(game, game->pos.x, game->pos.y));
 			}
-			j++;
+			x++;
 		}
-		i++;
+		y++;
 	}
 	return (false);
 }
@@ -107,7 +108,5 @@ t_bool	is_valid_path(t_game *game)
 		ft_putstr("\e[1;31m[!] - Fail: \e[1;97mMap is not possible!\n\e[0m");
 	else
 		ft_putstr("\e[1;32m[✓] - Success: \e[1;97mis_valid_path\n\e[0m");
-	ft_printf("Player X: %u\n", game->pos.x);
-	ft_printf("Player Y: %u\n", game->pos.y);
 	return (valid);
 }
