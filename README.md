@@ -19,6 +19,8 @@ Maps can be found in the [`maps`](https://github.com/flmarsou/so_long/tree/main/
 - `P`: Player
 - `C`: Collectible
 - `E`: Exit
+- `H`: Enemy (Horizontal Movement)
+- `V`: Enemy (Vertical Movement)
 
 Only the <ins>**specified characters**</ins> (e.g., walls, floors, etc.). \
 Maps must be <ins>**rectangular**</ins> and <ins>**enclosed**</ins> (player cannot move outside the map area). \
@@ -74,7 +76,10 @@ It must be <ins>**possible to reach all collectible(s)**</ins> and <ins>**the ex
 - [x] [`init_player_sprites`](https://github.com/flmarsou/so_long/blob/main/src/display/players/init_player_sprites.c) - Initializes player sprites.
 
 ## 4. Game
-- [x] [`handle_keypress`](https://github.com/flmarsou/so_long/blob/main/src/game/handle_keypress.c) - Runs every time a key is pressed, manages player movements, and redrawing tiles.
+- [x] [`handle_keypress`](https://github.com/flmarsou/so_long/blob/main/src/game/handle_keypress.c) - Runs every time a key is pressed.
+- [x] [`player_move`](https://github.com/flmarsou/so_long/blob/main/src/game/player_move.c) - Manages player movements.
+- [x] [`enemy_move`](https://github.com/flmarsou/so_long/blob/main/src/game/enemy_move.c) - Manages enemy movements.
+- [x] [`handle_text`](https://github.com/flmarsou/so_long/blob/main/src/game/handle_text.c) - Display text in the game window.
 - [x] [`close_window`](https://github.com/flmarsou/so_long/blob/main/src/game/close_window.c) - Frees everything and ends the program.
 
 ## X. Utils
@@ -89,3 +94,4 @@ It must be <ins>**possible to reach all collectible(s)**</ins> and <ins>**the ex
 - [x] [`ft_strdup`](https://github.com/flmarsou/so_long/blob/main/src/utils/ft_strdup.c) - Duplicates and allocates a string.
 - [x] [`ft_strjoin`](https://github.com/flmarsou/so_long/blob/main/src/utils/ft_strjoin.c) - Concatenates two strings.
 - [x] [`ft_strlen`](https://github.com/flmarsou/so_long/blob/main/src/utils/ft_strlen.c) - Returns the length of a string.
+- [x] [`ft_itoa`](https://github.com/flmarsou/so_long/blob/main/src/utils/ft_itoa.c) - Converts an integer into a string.
