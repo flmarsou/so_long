@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 14:58:18 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/08/23 13:18:52 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/08/26 11:42:06 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,10 @@ int	handle_keypress(int key, t_game *game)
 		temp_y++;
 	else if (key == D || key == ARROW_RIGHT)
 		temp_x++;
+	else
+		return (0);
 	enemy_move(game);
 	player_move(game, temp_x, temp_y);
+	handle_text(game);
 	return (0);
 }
