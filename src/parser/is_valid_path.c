@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 16:38:59 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/08/23 12:51:31 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/08/26 14:12:17 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ static t_bool	fill(t_game *game, unsigned int x, unsigned int y)
 	if (exit && coins == game->count.collectible)
 		return (true);
 	if (game->floodfill[y][x] == '1' || game->floodfill[y][x] == 'E'
-		|| game->floodfill[y][x] == 'F')
+		|| game->floodfill[y][x] == 'F' || game->floodfill[y][x] == 'H'
+		|| game->floodfill[y][x] == 'V')
 		return (false);
 	game->floodfill[y][x] = 'F';
 	if (fill(game, x + 1, y) || fill(game, x, y + 1)
