@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 09:45:09 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/08/23 11:00:11 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/08/26 13:56:22 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ struct s_count
 	unsigned int	player;
 	unsigned int	collectible;
 	unsigned int	exit;
+	unsigned int	moves;
 };
 
 // Player Position
@@ -117,6 +118,7 @@ int			ft_strcmp(const char *str1, const char *str2);
 char		*ft_strchr(char *str, char target);
 char		*ft_strdup(char *str);
 char		*ft_strjoin(char *str1, char *str2);
+char		*ft_itoa(int nbr);
 
 //===============================//
 //              Map              //
@@ -169,6 +171,7 @@ void		init_player_sprites(t_game *game, int width, int height);
 //===============================//
 
 int			handle_keypress(int key, t_game *game);
+void		handle_text(t_game *game);
 
 void		player_move(t_game *game, unsigned int temp_x, unsigned int temp_y);
 void		enemy_move(t_game *game);
