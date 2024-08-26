@@ -6,7 +6,7 @@
 #    By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/17 12:59:58 by flmarsou          #+#    #+#              #
-#    Updated: 2024/08/23 11:00:23 by flmarsou         ###   ########.fr        #
+#    Updated: 2024/08/26 11:40:16 by flmarsou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ SRC_UTILS	=	./src/utils/ft_putchar.c \
 				./src/utils/ft_strchr.c \
 				./src/utils/ft_strdup.c \
 				./src/utils/ft_strjoin.c \
+				./src/utils/ft_itoa.c \
 
 SRC_MAP		=	./src/map/init_map.c \
 				./src/map/get_next_line.c \
@@ -50,6 +51,7 @@ SRC_DISPLAY	=	./src/display/init_display.c \
 				./src/display/players/init_player_sprites.c \
 
 SRC_GAME	=	./src/game/handle_keypress.c \
+				./src/game/handle_text.c \
 				./src/game/player_move.c \
 				./src/game/enemy_move.c \
 				./src/game/close_window.c \
