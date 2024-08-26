@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 10:58:57 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/08/23 13:23:08 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/08/26 09:43:35 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ static void	move_v_up(t_game *game)
 		x = -1;
 		while (++x < game->width)
 		{
-			if (game->map[y][x] == 'V' && (game->map[y - 1][x] == '0' || game->map[y - 1][x] == 'P'))
+			if (game->map[y][x] == 'V' && (game->map[y - 1][x] == '0'
+				|| game->map[y - 1][x] == 'P'))
 			{
 				game->map[y][x] = '0';
 				game->map[y - 1][x] = 'V';
@@ -31,7 +32,8 @@ static void	move_v_up(t_game *game)
 				mlx_put_image_to_window(game->mlx.mlx, game->mlx.win,
 					game->mlx.wall.background, x * TILES, (y - 1) * TILES);
 			}
-			else if (game->map[y][x] == 'V' && (game->map[y - 1][x] == '1' || game->map[y - 1][x] == 'C' || game->map[y - 1][x] == 'v'))
+			else if (game->map[y][x] == 'V' && (game->map[y - 1][x] == '1'
+				|| game->map[y - 1][x] == 'C' || game->map[y - 1][x] == 'v'))
 				game->map[y][x] = 'v';
 		}
 	}
@@ -48,7 +50,8 @@ static void	move_v_down(t_game *game)
 		x = -1;
 		while (++x < game->width)
 		{
-			if (game->map[y][x] == 'v' && (game->map[y + 1][x] == '0' || game->map[y + 1][x] == 'P'))
+			if (game->map[y][x] == 'v' && (game->map[y + 1][x] == '0'
+				|| game->map[y + 1][x] == 'P'))
 			{
 				game->map[y][x] = '0';
 				game->map[y + 1][x] = 'v';
@@ -56,7 +59,8 @@ static void	move_v_down(t_game *game)
 				mlx_put_image_to_window(game->mlx.mlx, game->mlx.win,
 					game->mlx.wall.background, x * TILES, (y + 1) * TILES);
 			}
-			else if (game->map[y][x] == 'v' && (game->map[y + 1][x] == '1' || game->map[y + 1][x] == 'C' || game->map[y + 1][x] == 'V'))
+			else if (game->map[y][x] == 'v' && (game->map[y + 1][x] == '1'
+				|| game->map[y + 1][x] == 'C' || game->map[y + 1][x] == 'V'))
 				game->map[y][x] = 'V';
 		}
 	}
@@ -73,7 +77,8 @@ static void	move_h_left(t_game *game)
 		x = -1;
 		while (++x < game->width)
 		{
-			if (game->map[y][x] == 'H' && (game->map[y][x - 1] == '0' || game->map[y][x - 1] == 'P'))
+			if (game->map[y][x] == 'H' && (game->map[y][x - 1] == '0'
+				|| game->map[y][x - 1] == 'P'))
 			{
 				game->map[y][x] = '0';
 				game->map[y][x - 1] = 'H';
@@ -81,7 +86,8 @@ static void	move_h_left(t_game *game)
 				mlx_put_image_to_window(game->mlx.mlx, game->mlx.win,
 					game->mlx.wall.background, (x - 1) * TILES, y * TILES);
 			}
-			else if (game->map[y][x] == 'H' && (game->map[y][x - 1] == '1' || game->map[y][x - 1] == 'C' || game->map[y][x - 1] == 'h'))
+			else if (game->map[y][x] == 'H' && (game->map[y][x - 1] == '1'
+				|| game->map[y][x - 1] == 'C' || game->map[y][x - 1] == 'h'))
 				game->map[y][x] = 'h';
 		}
 	}
@@ -98,7 +104,8 @@ static void	move_h_right(t_game *game)
 		x = game->width;
 		while (--x > 0)
 		{
-			if (game->map[y][x] == 'h' && (game->map[y][x + 1] == '0' || game->map[y][x + 1] == 'P'))
+			if (game->map[y][x] == 'h' && (game->map[y][x + 1] == '0'
+				|| game->map[y][x + 1] == 'P'))
 			{
 				game->map[y][x] = '0';
 				game->map[y][x + 1] = 'h';
@@ -106,7 +113,8 @@ static void	move_h_right(t_game *game)
 				mlx_put_image_to_window(game->mlx.mlx, game->mlx.win,
 					game->mlx.wall.background, (x + 1) * TILES, y * TILES);
 			}
-			else if (game->map[y][x] == 'h' && (game->map[y][x + 1] == '1' || game->map[y][x + 1] == 'C' || game->map[y][x + 1] == 'H'))
+			else if (game->map[y][x] == 'h' && (game->map[y][x + 1] == '1'
+				|| game->map[y][x + 1] == 'C' || game->map[y][x + 1] == 'H'))
 				game->map[y][x] = 'H';
 		}
 	}
