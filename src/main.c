@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 12:07:25 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/08/22 14:35:06 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/08/26 11:46:01 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ static void	init_struct(t_game *game)
 	game->count.player = 0;
 	game->count.collectible = 0;
 	game->count.exit = 0;
+	game->count.moves = 0;
 }
 
 int	main(int argc, const char **argv)

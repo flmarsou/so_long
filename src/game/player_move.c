@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 10:00:04 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/08/23 13:26:30 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/08/26 10:19:05 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void	player_move(t_game *game, unsigned int temp_x, unsigned int temp_y)
 		game->map[temp_y][temp_x] = 'P';
 		game->pos.x = temp_x;
 		game->pos.y = temp_y;
+		game->count.moves++;
 		redraw_floor(game, player_x, player_y);
 	}
 	if (game->map[temp_y][temp_x] == 'E' && game->count.collectible == 0)
