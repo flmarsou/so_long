@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 09:45:09 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/08/26 13:56:22 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/08/26 14:22:09 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@
 # define D						100
 # define ARROW_RIGHT			65363
 # define ESC					65307
-# define R						114
 
 // Sprites
 # define TILES					48
@@ -76,6 +75,7 @@ struct s_floor
 	void			*floor1;
 };
 
+// Player Sprites
 struct s_player
 {
 	void			*player_up;
@@ -124,8 +124,11 @@ char		*ft_itoa(int nbr);
 //              Map              //
 //===============================//
 
+// Returns a line one after another at each call.
 char		*get_next_line(int fd);
+// Allocates and turns the .ber file into an arrow of strings.
 void		init_map(const char **argv, t_game *game);
+// Frees the allocated char **.
 void		free_map(t_game *game);
 
 //===============================//
@@ -151,31 +154,47 @@ t_bool		is_valid_path(t_game *game);
 //            Display            //
 //===============================//
 
+// Creates the window.
 void		init_display(t_game *game);
+// Calls every init sprite functions.
 void		init_sprites(t_game *game, int width, int height);
 
+// Initializes wall sprites.
 void		init_wall_sprites(t_game *game, int width, int height);
+// Checks the position of the current tile and draws wall sprites in the window.
 void		display_walls(t_game *game);
+// Checks adjacent walls to display the correct wall sprite.
 int			which_inner_wall(t_game *game, unsigned int x, unsigned int y);
+// Checks diagonal walls to display the correct wall sprite.
 int			which_outer_wall(t_game *game, unsigned int x, unsigned int y);
 
+// Initializes floor sprites
 void		init_floor_sprites(t_game *game, int width, int height);
+// Checks the position of the current tile.
 void		display_floors(t_game *game);
+// Generate a pseudo random list of numbers to draw "random" floor sprite.
 int			random_floor(t_game *game);
+// Draws floor sprites in the window.
 void		draw_floor(t_game *game, int floor, unsigned int x, unsigned int y);
 
+// Initializes player sprites
 void		init_player_sprites(t_game *game, int width, int height);
 
 //===============================//
 //              Game             //
 //===============================//
 
+// Runs every time a key is pressed.
 int			handle_keypress(int key, t_game *game);
+// Displays text in the game window.
 void		handle_text(t_game *game);
 
+// Mananges the player movement.
 void		player_move(t_game *game, unsigned int temp_x, unsigned int temp_y);
+// Manages the enemy movement.
 void		enemy_move(t_game *game);
 
+// Frees everything and destroys the window.
 int			close_window(t_game *game);
 
 #endif
