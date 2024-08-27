@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 09:45:09 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/08/26 14:22:09 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/08/27 12:45:02 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,14 @@
 # define WALL_BACKKGROUND		"./assets/sprites/walls/background.xpm"
 
 # define FLOOR1					"./assets/sprites/floors/floor1.xpm"
+# define FLOOR2					"./assets/sprites/floors/floor2.xpm"
+# define FLOOR3					"./assets/sprites/floors/floor3.xpm"
+# define FLOOR4					"./assets/sprites/floors/floor4.xpm"
 
 # define PLAYER_UP				"./assets/sprites/players/player_up.xpm"
+# define PLAYER_DOWN			"./assets/sprites/players/player_down.xpm"
+# define PLAYER_LEFT			"./assets/sprites/players/player_left.xpm"
+# define PLAYER_RIGHT			"./assets/sprites/players/player_right.xpm"
 
 // Boolean
 typedef enum e_bool
@@ -73,12 +79,18 @@ struct s_wall
 struct s_floor
 {
 	void			*floor1;
+	void			*floor2;
+	void			*floor3;
+	void			*floor4;
 };
 
 // Player Sprites
 struct s_player
 {
 	void			*player_up;
+	void			*player_down;
+	void			*player_left;
+	void			*player_right;
 };
 
 // MiniLibX
