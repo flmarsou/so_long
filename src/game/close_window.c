@@ -6,20 +6,47 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 14:22:05 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/08/22 14:47:50 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/08/27 12:48:58 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
 
-int	close_window(t_game *game)
+static void	destroy_player_sprites(t_game *game)
+{
+	if (game->mlx.player.player_up)
+		mlx_destroy_image(game->mlx.mlx, game->mlx.player.player_up);
+	if (game->mlx.player.player_down)
+		mlx_destroy_image(game->mlx.mlx, game->mlx.player.player_down);
+	if (game->mlx.player.player_left)
+		mlx_destroy_image(game->mlx.mlx, game->mlx.player.player_left);
+	if (game->mlx.player.player_right)
+		mlx_destroy_image(game->mlx.mlx, game->mlx.player.player_right);
+}
+
+static void	destroy_floor_sprites(t_game *game)
+{
+	if (game->mlx.floor.floor1)
+		mlx_destroy_image(game->mlx.mlx, game->mlx.floor.floor1);
+	if (game->mlx.floor.floor2)
+		mlx_destroy_image(game->mlx.mlx, game->mlx.floor.floor2);
+	if (game->mlx.floor.floor3)
+		mlx_destroy_image(game->mlx.mlx, game->mlx.floor.floor3);
+	if (game->mlx.floor.floor4)
+		mlx_destroy_image(game->mlx.mlx, game->mlx.floor.floor4);
+}
+
+static void	destroy_wall_sprites1(t_game *game)
 {
 	if (game->mlx.wall.background)
 		mlx_destroy_image(game->mlx.mlx, game->mlx.wall.background);
-	if (game->mlx.floor.floor1)
-		mlx_destroy_image(game->mlx.mlx, game->mlx.floor.floor1);
-	if (game->mlx.player.player_up)
-		mlx_destroy_image(game->mlx.mlx, game->mlx.player.player_up);
+}
+
+int	close_window(t_game *game)
+{
+	destroy_wall_sprites1(game);
+	destroy_floor_sprites(game);
+	destroy_player_sprites(game);
 	if (game->mlx.win)
 		mlx_destroy_window(game->mlx.mlx, game->mlx.win);
 	free_map(game);
