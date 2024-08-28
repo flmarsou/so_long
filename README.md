@@ -14,13 +14,15 @@ git clone https://github.com/flmarsou/so_long.git && cd so_long/includes/ && git
 3. Run `./so_long <map_path>` to execute the program.
 
 Maps can be found in the [`maps`](https://github.com/flmarsou/so_long/tree/main/maps) folder, and has to be in the `.ber` extension.
-- `1`: Wall
-- `0`: Floor
-- `P`: Player
-- `C`: Collectible
-- `E`: Exit
-- `H`: Enemy (Horizontal Movement)
-- `V`: Enemy (Vertical Movement)
+| Char  | Entity |
+| ----- | ------ |
+|  `1`  | Wall |
+|  `0`  | Floor |
+|  `P`  | Player |
+|  `C`  | Collectible |
+|  `E`  | Exit |
+|  `H`  | Horizontal Enemy |
+|  `V`  | Vertical Enemy |
 
 Only the <ins>**specified characters**</ins> (e.g., walls, floors, etc.). \
 Maps must be <ins>**rectangular**</ins> and <ins>**enclosed**</ins> (player cannot move outside the map area). \
