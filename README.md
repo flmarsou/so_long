@@ -48,7 +48,7 @@ It must be <ins>**possible to reach all collectible(s)**</ins> and <ins>**the ex
 
 # 📑 List of Functions
 
-- [x] [`main`](https://github.com/flmarsou/push_swap/blob/main/src/main.c) - Checks the arguments, calls, and sends info to the [map](https://github.com/flmarsou/so_long/tree/main/src/map), [parser](https://github.com/flmarsou/so_long/tree/main/src/parser), and [display](https://github.com/flmarsou/so_long/tree/main/src/display).
+- [x] [`main`](https://github.com/flmarsou/so_long/blob/main/src/main.c) - Checks the arguments, calls, and sends info to the [map](https://github.com/flmarsou/so_long/tree/main/src/map), [parser](https://github.com/flmarsou/so_long/tree/main/src/parser), and [display](https://github.com/flmarsou/so_long/tree/main/src/display).
 
 ## 1. Map
 - [x] [`get_next_line`](https://github.com/flmarsou/so_long/blob/main/src/map/get_next_line.c) - Slightly modified version of [get_next_line](https://github.com/flmarsou/get_next_line).
