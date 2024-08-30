@@ -1,5 +1,8 @@
 # 🦊 What is So Long?
 
+**So Long** is the first graphical project of the *42 Cursus*. The objective is to create a simple **2D game** where the player navigates a *map*, collecting *items* scattered throughout the level to unlock the *exit* and complete the game. <br><br>
+This project serves as a practical introduction to using **external libraries**, particularly focusing on *graphical rendering*, *window management*, and *event handling*.
+
 ### Overview:
 - **Parsing:**
   > Verifies if the arguments are correct.  
