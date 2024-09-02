@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 09:45:09 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/08/27 12:45:02 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/09/02 15:47:33 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -191,6 +191,9 @@ void		draw_floor(t_game *game, int floor, unsigned int x, unsigned int y);
 
 // Initializes player sprites
 void		init_player_sprites(t_game *game, int width, int height);
+
+// Draws player sprite in the window.
+void		display_player(t_game *game);
 
 //===============================//
 //              Game             //
