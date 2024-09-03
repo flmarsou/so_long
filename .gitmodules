@@ -1,4 +1,4 @@
-[submodule "includes/.mlx"]
-	path = includes/.mlx
+[submodule "includes/MiniLibX"]
+	path = includes/MiniLibX
 	url = https://github.com/42Paris/minilibx-linux.git
 
