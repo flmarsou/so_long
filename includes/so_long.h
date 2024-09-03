@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 09:45:09 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/09/02 15:47:33 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/09/03 14:57:38 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -205,7 +205,7 @@ int			handle_keypress(int key, t_game *game);
 void		handle_text(t_game *game);
 
 // Mananges the player movement.
-void		player_move(t_game *game, unsigned int temp_x, unsigned int temp_y);
+void		player_move(t_game *game, unsigned int x, unsigned int y, int face);
 // Manages the enemy movement.
 void		enemy_move(t_game *game);
 
