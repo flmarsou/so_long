@@ -18,7 +18,7 @@
 # include <stdlib.h>	// malloc, free, exit
 # include <math.h>		// Math Functions
 # include <stdarg.h>	// Variadic Functions
-# include ".mlx/mlx.h"	// MiniLibX
+# include ".MiniLibX/mlx.h"	// MiniLibX
 
 // Hooks
 # define W						119

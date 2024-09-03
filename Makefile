@@ -61,7 +61,7 @@ SOURCES		=	${SRC} ${SRC_UTILS} ${SRC_MAP} ${SRC_PARSER} ${SRC_DISPLAY} ${SRC_GAM
 OBJECTS		=	${SOURCES:%.c=obj/%.o}
 
 # Libraries
-MINILIBX	=	./includes/.mlx
+MINILIBX	=	./includes/.MiniLibX
 
 # Variables
 CC			=	cc
