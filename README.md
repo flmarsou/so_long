@@ -9,9 +9,9 @@ This project serves as a practical introduction to using **external libraries**,
   > Checks the *.ber* file by checking for [`valid characters`](https://github.com/flmarsou/so_long/blob/main/src/parser/is_valid_char.c), [`correct character counts`](https://github.com/flmarsou/so_long/blob/main/src/parser/is_valid_count.c), [`proper shape`](https://github.com/flmarsou/so_long/blob/main/src/parser/is_valid_shape.c), [`complete enclosure`](https://github.com/flmarsou/so_long/blob/main/src/parser/is_valid_close.c), and [`valid path`](https://github.com/flmarsou/so_long/blob/main/src/parser/is_valid_path.c), while simultaneously storing information in the struct in the process.
   
 - **Initialization:**
-  > Uses [get_next_line](https://github.com/flmarsou/get_next_line) to convert the *.ber* file into an **array of string**.  
-  > Initializes the MLX library and creates the [display window](https://github.com/flmarsou/so_long/blob/main/src/display/init_display.c).  
-  > Loads and prepares the [init_sprites](https://github.com/flmarsou/so_long/blob/main/src/display/init_sprites.c) for rendering.
+  > Uses [`get_next_line`](https://github.com/flmarsou/get_next_line) to convert the *.ber* file into an **array of string**.  
+  > Initializes the MLX library and creates the [`display window`](https://github.com/flmarsou/so_long/blob/main/src/display/init_display.c).  
+  > Loads and prepares the [`init_sprites`](https://github.com/flmarsou/so_long/blob/main/src/display/init_sprites.c) for rendering.
 
 - **Execution:**
   > Starts the rendering process to display the **walls**, **floors**, **collectibles**, **exit**, **player** tiles, and the in-game text.  
