@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 14:58:18 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/09/03 15:05:00 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/09/04 11:48:30 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int	handle_keypress(int key, t_game *game)
 	temp_y = game->pos.y;
 	if (key == ESC)
 		close_window(game);
-	enemy_move(game);
 	if (key == W || key == ARROW_UP)
 		player_move(game, temp_x, --temp_y, W);
 	else if (key == A || key == ARROW_LEFT)
@@ -32,6 +31,8 @@ int	handle_keypress(int key, t_game *game)
 		player_move(game, ++temp_x, temp_y, D);
 	else
 		return (0);
+	enemy_move(game);
+	display_exit(game);
 	handle_text(game);
 	return (0);
 }

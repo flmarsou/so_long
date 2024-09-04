@@ -6,7 +6,7 @@
 #    By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/17 12:59:58 by flmarsou          #+#    #+#              #
-#    Updated: 2024/09/03 14:59:11 by flmarsou         ###   ########.fr        #
+#    Updated: 2024/09/04 08:50:07 by flmarsou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,6 +49,8 @@ SRC_DISPLAY	=	./src/display/init_display.c \
 				./src/display/floors/init_floor_sprites.c \
 				./src/display/players/display_player.c \
 				./src/display/players/init_player_sprites.c \
+				./src/display/exits/display_exit.c \
+				./src/display/exits/init_exit_sprites.c \
 
 SRC_GAME	=	./src/game/handle_keypress.c \
 				./src/game/handle_text.c \

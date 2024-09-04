@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 09:45:09 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/09/03 14:57:38 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/09/04 11:41:46 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,9 @@
 # define PLAYER_DOWN			"./assets/sprites/players/player_down.xpm"
 # define PLAYER_LEFT			"./assets/sprites/players/player_left.xpm"
 # define PLAYER_RIGHT			"./assets/sprites/players/player_right.xpm"
+
+# define EXIT1					"./assets/sprites/exits/exit1.xpm"
+# define EXIT2					"./assets/sprites/exits/exit2.xpm"
 
 // Boolean
 typedef enum e_bool
@@ -93,6 +96,13 @@ struct s_player
 	void			*player_right;
 };
 
+// Exit Sprites
+struct s_exit
+{
+	void			*exit1;
+	void			*exit2;
+};
+
 // MiniLibX
 struct s_mlx
 {
@@ -101,6 +111,7 @@ struct s_mlx
 	struct s_wall	wall;
 	struct s_floor	floor;
 	struct s_player	player;
+	struct s_exit	exit;
 };
 
 // Main Struct
@@ -173,27 +184,32 @@ void		init_sprites(t_game *game, int width, int height);
 
 // Initializes wall sprites.
 void		init_wall_sprites(t_game *game, int width, int height);
-// Checks the position of the current tile and draws wall sprites in the window.
-void		display_walls(t_game *game);
 // Checks adjacent walls to display the correct wall sprite.
 int			which_inner_wall(t_game *game, unsigned int x, unsigned int y);
 // Checks diagonal walls to display the correct wall sprite.
 int			which_outer_wall(t_game *game, unsigned int x, unsigned int y);
+// Checks the position of the current tile and draws wall sprites in the window.
+void		display_walls(t_game *game);
 
 // Initializes floor sprites
 void		init_floor_sprites(t_game *game, int width, int height);
-// Checks the position of the current tile.
-void		display_floors(t_game *game);
 // Generate a pseudo random list of numbers to draw "random" floor sprite.
 int			random_floor(t_game *game);
-// Draws floor sprites in the window.
+
+// 	Draws floor sprites in the window.
 void		draw_floor(t_game *game, int floor, unsigned int x, unsigned int y);
+// Checks the position of the current tile.
+void		display_floors(t_game *game);
 
 // Initializes player sprites
 void		init_player_sprites(t_game *game, int width, int height);
-
 // Draws player sprite in the window.
 void		display_player(t_game *game);
+
+// Initializes exit sprites.
+void		init_exit_sprites(t_game *game, int width, int height);
+// Draws exit sprites according to the collectible count.
+void		display_exit(t_game *game);
 
 //===============================//
 //              Game             //

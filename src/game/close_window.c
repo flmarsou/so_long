@@ -6,11 +6,19 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 14:22:05 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/08/27 12:48:58 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/09/04 08:52:24 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
+
+static void	destroy_exit_sprites(t_game *game)
+{
+	if (game->mlx.exit.exit1)
+		mlx_destroy_image(game->mlx.mlx, game->mlx.exit.exit1);
+	if (game->mlx.exit.exit2)
+		mlx_destroy_image(game->mlx.mlx, game->mlx.exit.exit2);
+}
 
 static void	destroy_player_sprites(t_game *game)
 {
@@ -47,6 +55,7 @@ int	close_window(t_game *game)
 	destroy_wall_sprites1(game);
 	destroy_floor_sprites(game);
 	destroy_player_sprites(game);
+	destroy_exit_sprites(game);
 	if (game->mlx.win)
 		mlx_destroy_window(game->mlx.mlx, game->mlx.win);
 	free_map(game);
