@@ -81,9 +81,8 @@ It must be <ins>**possible to reach all collectible(s)**</ins> and <ins>**the ex
 - [x] [`which_inner_wall`](https://github.com/flmarsou/so_long/blob/main/src/display/walls/which_inner_wall.c) - Finds the wall sprite by checking its adjacent walls.
 - [x] [`which_outer_wall`](https://github.com/flmarsou/so_long/blob/main/src/display/walls/which_outer_wall.c) - Finds the wall sprite by checking its diagonal walls.
 #### Floors:
-- [x] [`display_floors`](https://github.com/flmarsou/so_long/blob/main/src/display/floors/display_floors.c) - Draws floor tiles according to their positions.
+- [x] [`display_floors`](https://github.com/flmarsou/so_long/blob/main/src/display/floors/display_floors.c) - Draws floor tiles according to their positions with a pseudo-random pattern.
 - [x] [`init_floor_sprites`](https://github.com/flmarsou/so_long/blob/main/src/display/floors/init_floor_sprites.c) - Initializes floor sprites.
-- [x] [`random_floor`](https://github.com/flmarsou/so_long/blob/main/src/display/floors/random_floor.c) - Returns a pseudo random seed for randomizing floor tiles.
 #### Players:
 - [x] [`init_player_sprites`](https://github.com/flmarsou/so_long/blob/main/src/display/players/init_player_sprites.c) - Initializes player sprites.
 
