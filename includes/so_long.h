@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 09:45:09 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/09/05 10:42:53 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/09/05 15:54:53 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,6 +124,7 @@ typedef struct s_game
 	unsigned int	height;
 	unsigned int	width;
 	char			**floodfill;
+	char			**map_floor;
 }	t_game;
 
 //===============================//
@@ -193,11 +194,12 @@ void		display_walls(t_game *game);
 
 // Initializes floor sprites
 void		init_floor_sprites(t_game *game, int width, int height);
-// Generate a pseudo random list of numbers to draw "random" floor sprite.
-int			random_floor(t_game *game);
-
+// Generates a 2D map for randomized floor tiles.
+void		which_floor(t_game *game);
+// Frees 2D map.
+void		floor_map_free(t_game *game);
 // 	Draws floor sprites in the window.
-void		draw_floor(t_game *game, int floor, unsigned int x, unsigned int y);
+void		draw_floor(t_game *game, char c, unsigned int x, unsigned int y);
 // Checks the position of the current tile.
 void		display_floors(t_game *game);
 

@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 10:00:04 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/09/05 12:37:22 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/09/05 15:47:06 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	redraw(t_game *game, unsigned int x, unsigned int y, int face)
 {
-	draw_floor(game, random_floor(game),
+	draw_floor(game, game->map_floor[game->pos.y][game->pos.x],
 		game->pos.x * TILES, game->pos.y * TILES);
 	if (face == W)
 		mlx_put_image_to_window(game->mlx.mlx, game->mlx.win,

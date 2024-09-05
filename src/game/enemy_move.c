@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 10:58:57 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/08/26 09:43:35 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/09/05 15:52:19 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	move_v_up(t_game *game)
 			{
 				game->map[y][x] = '0';
 				game->map[y - 1][x] = 'V';
-				draw_floor(game, random_floor(game), x * TILES, y * TILES);
+				draw_floor(game, game->map_floor[y][x], x * TILES, y * TILES);
 				mlx_put_image_to_window(game->mlx.mlx, game->mlx.win,
 					game->mlx.wall.background, x * TILES, (y - 1) * TILES);
 			}
@@ -55,7 +55,7 @@ static void	move_v_down(t_game *game)
 			{
 				game->map[y][x] = '0';
 				game->map[y + 1][x] = 'v';
-				draw_floor(game, random_floor(game), x * TILES, y * TILES);
+				draw_floor(game, game->map_floor[y][x], x * TILES, y * TILES);
 				mlx_put_image_to_window(game->mlx.mlx, game->mlx.win,
 					game->mlx.wall.background, x * TILES, (y + 1) * TILES);
 			}
@@ -82,7 +82,7 @@ static void	move_h_left(t_game *game)
 			{
 				game->map[y][x] = '0';
 				game->map[y][x - 1] = 'H';
-				draw_floor(game, random_floor(game), x * TILES, y * TILES);
+				draw_floor(game, game->map_floor[y][x], x * TILES, y * TILES);
 				mlx_put_image_to_window(game->mlx.mlx, game->mlx.win,
 					game->mlx.wall.background, (x - 1) * TILES, y * TILES);
 			}
@@ -109,7 +109,7 @@ static void	move_h_right(t_game *game)
 			{
 				game->map[y][x] = '0';
 				game->map[y][x + 1] = 'h';
-				draw_floor(game, random_floor(game), x * TILES, y * TILES);
+				draw_floor(game, game->map_floor[y][x], x * TILES, y * TILES);
 				mlx_put_image_to_window(game->mlx.mlx, game->mlx.win,
 					game->mlx.wall.background, (x + 1) * TILES, y * TILES);
 			}

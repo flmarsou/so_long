@@ -6,7 +6,7 @@
 #    By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/17 12:59:58 by flmarsou          #+#    #+#              #
-#    Updated: 2024/09/05 10:43:03 by flmarsou         ###   ########.fr        #
+#    Updated: 2024/09/05 15:26:05 by flmarsou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,6 +47,7 @@ SRC_DISPLAY	=	./src/display/init_display.c \
 				./src/display/walls/display_walls.c \
 				./src/display/floors/display_floors.c \
 				./src/display/floors/init_floor_sprites.c \
+				./src/display/floors/which_floor.c \
 				./src/display/players/display_player.c \
 				./src/display/players/init_player_sprites.c \
 				./src/display/exits/display_exit.c \

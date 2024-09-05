@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 14:22:05 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/09/04 08:52:24 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/09/05 15:55:08 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ int	close_window(t_game *game)
 	if (game->mlx.win)
 		mlx_destroy_window(game->mlx.mlx, game->mlx.win);
 	free_map(game);
+	floor_map_free(game);
 	free(game);
 	ft_putstr("\e[1;36m[!] - Info: \e[1;97mGame closed!\n\e[0m");
 	exit(0);
