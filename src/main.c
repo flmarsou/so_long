@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 12:07:25 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/09/04 11:49:58 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/09/05 12:16:26 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ int	main(int argc, const char **argv)
 	display_player(game);
 	display_exit(game);
 	handle_text(game);
+	print_map(game);
 	mlx_hook(game->mlx.win, 2, (1L << 0), handle_keypress, game);
 	mlx_hook(game->mlx.win, 17, 0L, close_window, game);
 	mlx_loop(game->mlx.mlx);

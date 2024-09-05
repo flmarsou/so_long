@@ -6,7 +6,7 @@
 #    By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/17 12:59:58 by flmarsou          #+#    #+#              #
-#    Updated: 2024/09/04 08:50:07 by flmarsou         ###   ########.fr        #
+#    Updated: 2024/09/05 10:43:03 by flmarsou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,6 +56,7 @@ SRC_GAME	=	./src/game/handle_keypress.c \
 				./src/game/handle_text.c \
 				./src/game/player_move.c \
 				./src/game/enemy_move.c \
+				./src/game/print_map.c \
 				./src/game/close_window.c \
 
 SOURCES		=	${SRC} ${SRC_UTILS} ${SRC_MAP} ${SRC_PARSER} ${SRC_DISPLAY} ${SRC_GAME}
