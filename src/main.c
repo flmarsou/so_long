@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 12:07:25 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/09/05 15:49:29 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/09/06 09:24:08 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ static void	init_graphics(t_game *game)
 	which_floor(game);
 	display_floors(game);
 	display_player(game);
+	display_collectibles(game);
 	display_exit(game);
 	handle_text(game);
 	print_map(game);

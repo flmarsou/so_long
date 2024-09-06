@@ -6,7 +6,7 @@
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 09:45:09 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/09/05 15:54:53 by flmarsou         ###   ########.fr       */
+/*   Updated: 2024/09/06 09:19:54 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@
 
 # define EXIT1					"./assets/sprites/exits/exit1.xpm"
 # define EXIT2					"./assets/sprites/exits/exit2.xpm"
+
+# define COLLECTIBLE			"./assets/sprites/collectibles/collectible.xpm"
 
 // Boolean
 typedef enum e_bool
@@ -96,6 +98,12 @@ struct s_player
 	void			*player_right;
 };
 
+// Collectible Sprites
+struct s_col
+{
+	void			*collectible;
+};
+
 // Exit Sprites
 struct s_exit
 {
@@ -111,6 +119,7 @@ struct s_mlx
 	struct s_wall	wall;
 	struct s_floor	floor;
 	struct s_player	player;
+	struct s_col	collectible;
 	struct s_exit	exit;
 };
 
@@ -198,10 +207,15 @@ void		init_floor_sprites(t_game *game, int width, int height);
 void		which_floor(t_game *game);
 // Frees 2D map.
 void		floor_map_free(t_game *game);
-// 	Draws floor sprites in the window.
+// Draws floor sprites in the window.
 void		draw_floor(t_game *game, char c, unsigned int x, unsigned int y);
 // Checks the position of the current tile.
 void		display_floors(t_game *game);
+
+// Initializes collectible sprites.
+void		init_collectible_sprites(t_game *game, int width, int height);
+// Draws collectibles sprites in the window.
+void		display_collectibles(t_game *game);
 
 // Initializes player sprites
 void		init_player_sprites(t_game *game, int width, int height);

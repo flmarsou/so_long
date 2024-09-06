@@ -1,22 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_sprites.c                                     :+:      :+:    :+:   */
+/*   init_collectible_sprites.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flmarsou <flmarsou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/19 12:11:47 by flmarsou          #+#    #+#             */
-/*   Updated: 2024/09/06 09:17:35 by flmarsou         ###   ########.fr       */
+/*   Created: 2024/08/20 13:15:48 by flmarsou          #+#    #+#             */
+/*   Updated: 2024/09/06 09:12:20 by flmarsou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/so_long.h"
+#include "../../../includes/so_long.h"
 
-void	init_sprites(t_game *game, int width, int height)
+void	init_collectible_sprites(t_game *game, int width, int height)
 {
-	init_wall_sprites(game, width, height);
-	init_floor_sprites(game, width, height);
-	init_player_sprites(game, width, height);
-	init_collectible_sprites(game, width, height);
-	init_exit_sprites(game, width, height);
+	game->mlx.collectible.collectible = mlx_xpm_file_to_image(game->mlx.mlx,
+			COLLECTIBLE, &width, &height);
 }
