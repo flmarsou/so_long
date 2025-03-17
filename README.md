@@ -44,17 +44,7 @@ It must be <ins>**possible to reach all collectible(s)**</ins> and <ins>**the ex
 1. Run `make clean` to remove every object files.
 2. Run `make fclean` to remove every object files, including the executable.
 
-# ✨ Summary
-
-|     |     |
-| --- | --- |
-| Program name | so_long |
-| Turn in files | Makefile, *.h, *.c, maps, sprites |
-| Makefile | NAME, all, clean, fclean, re |
-| Arguments | a map in format *.ber |
-| External functs. | • open, close, read, write, malloc, free, perror, strerror, exit <br> • All functions of the <math.h> library <br> • All functions of the [`MiniLibX`](https://github.com/42Paris/minilibx-linux) <br> • [`ft_printf`](https://github.com/flmarsou/ft_printf)|
-| [Libft](https://github.com/flmarsou/libft) authorized | Yes |
-| Description | You must create a small 2D game where a player collects items before leaving the level. |
+---
 
 # 📑 List of Functions
 
